@@ -82,7 +82,7 @@ export default SlideoverMenu;
 const LinkGroup: React.FC<{ links: LinkItem[] }> = ({ links }) => (
   <ul className="LinkGroup py-4 text-lg md:text-xl tracking-wider antialiased">
     {links
-      .filter((link) => (typeof link === `function` ? true : link[2] && link[2] === LANG))
+      .filter((link) => (Array.isArray(link) ? !link[2] || link[2] === LANG : true))
       .map((link, idx) => {
         if (typeof link === `function`) {
           return (
