@@ -1,15 +1,52 @@
 name: basic-ci
 
-on: push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize]
 
 env:
   CLOUD_STORAGE_BUCKET_URL: ${{ secrets.CLOUD_STORAGE_BUCKET_URL }}
   DOCUMENT_META_AUTH_TOKEN: ${{ secrets.DOCUMENT_META_AUTH_TOKEN }}
   DOCUMENT_META_GIST_ID: ${{ secrets.DOCUMENT_META_GIST_ID }}
   DOCUMENT_META_GIST_FILENAME: ${{ secrets.DOCUMENT_META_GIST_FILENAME }}
-  DOCS_REPOS_ROOT: ${{ github.workspace }}
+  GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+  ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+  GATSBY_ALGOLIA_SEARCH_ONLY_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_ONLY_KEY }}
+  GATSBY_TEST_STRIPE_PUBLISHABLE_KEY: ${{ secrets.GATSBY_TEST_STRIPE_PUBLISHABLE_KEY }}
+  GATSBY_PROD_STRIPE_PUBLISHABLE_KEY: ${{ secrets.GATSBY_PROD_STRIPE_PUBLISHABLE_KEY }}
+  DOCS_REPOS_ROOT: ${{ github.workspace }}/evans
+  DEPLOYING: true
+  GATSBY_NETLIFY_CONTEXT:
+    ${{ github.ref == 'refs/heads/master' && 'production' || 'preview'}}
 
 jobs:
+  cancel:
+    name: cancel-previous-runs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: styfle/cancel-workflow-action@0.3.1
+        with:
+          workflow_id: 2911445
+          access_token: ${{ github.token }}
+
+  setup:
+    name: setup
+    runs-on: ubuntu-latest
+    outputs:
+      pull_request_number: ${{ steps.meta.outputs.pull_request_number }}
+      pull_request_title: ${{ steps.meta.outputs.pull_request_title }}
+      latest_commit_sha: ${{ steps.meta.outputs.latest_commit_sha }}
+      latest_commit_sha_short: ${{ steps.meta.outputs.latest_commit_sha_short }}
+    steps:
+      - name: meta
+        id: meta
+        uses: friends-library/friends-library/actions/meta@actions
+        with:
+          github_token: ${{ github.token }}
+
   ci:
     name: test
     runs-on: ubuntu-latest
@@ -28,9 +65,16 @@ jobs:
   build-en:
     name: build-en
     runs-on: ubuntu-latest
+    needs: setup
+    outputs:
+      deploy_url: ${{ steps.deploy.outputs.url }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: evans
       - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: evans
       - uses: actions/checkout@v2
         with:
           repository: friends-library-dev/functions
@@ -39,16 +83,32 @@ jobs:
         with:
           working-directory: functions
       - name: clone-friend-repos
-        run: npx friend-repos-clone-all $DOCS_REPOS_ROOT
+        run: cd evans && npx friend-repos-clone-all .
       - name: build:en
-        run: npm run build:en
+        run: cd evans && npm run build:en
+      - name: deploy
+        id: deploy
+        uses: friends-library/friends-library/actions/deploy@actions
+        with:
+          netlify_api_token: ${{ secrets.NETLIFY_API_TOKEN }}
+          site_id: ${{ secrets.DEPLOY_SITE_ID_EN }}
+          build_dir: evans/public
+          functions_dir: functions/dist
+          github_token: ${{ github.token }}
 
   build-es:
     name: build-es
+    needs: setup
+    outputs:
+      deploy_url: ${{ steps.deploy.outputs.url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: evans
       - uses: bahmutov/npm-install@v1
+        with:
+          working-directory: evans
       - uses: actions/checkout@v2
         with:
           repository: friends-library-dev/functions
@@ -57,9 +117,33 @@ jobs:
         with:
           working-directory: functions
       - name: clone-friend-repos
-        run: npx friend-repos-clone-all $DOCS_REPOS_ROOT
+        run: cd evans && npx friend-repos-clone-all .
       - name: build:es
-        run: npm run build:es
+        run: cd evans && npm run build:es
+      - name: deploy
+        id: deploy
+        uses: friends-library/friends-library/actions/deploy@actions
+        with:
+          netlify_api_token: ${{ secrets.NETLIFY_API_TOKEN }}
+          site_id: ${{ secrets.DEPLOY_SITE_ID_ES }}
+          build_dir: evans/public
+          functions_dir: functions/dist
+          github_token: ${{ github.token }}
+
+  comment:
+    name: comment
+    runs-on: ubuntu-latest
+    needs: [setup, build-en, build-es]
+    if: github.ref != 'refs/heads/master'
+    steps:
+      - name: deploy-comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          sha: ${{ needs.setup.outputs.latest_commit_sha }}
+          body: |
+            Deploy previews for commit ${{ needs.setup.outputs.latest_commit_sha_short }}
+            - English: [${{ needs.build-en.outputs.deploy_url }}](${{ needs.build-en.outputs.deploy_url }})
+            - Spanish: [${{ needs.build-es.outputs.deploy_url }}](${{ needs.build-es.outputs.deploy_url }})
 
   storybook:
     name: build-storybook
