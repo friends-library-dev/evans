@@ -70,7 +70,7 @@ module.exports = {
       resolve: `gatsby-plugin-webpack-bundle-analyzer`,
       options: {
         production: true,
-        disable: !process.env.ANALYZE_BUNDLE_SIZE,
+        disable: process.env.ANALYZE_BUNDLE_SIZE !== `true`,
         generateStatsFile: true,
         analyzerMode: `static`,
       },
