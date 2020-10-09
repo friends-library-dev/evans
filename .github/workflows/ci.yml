@@ -85,7 +85,32 @@ jobs:
       - name: clone-friend-repos
         run: cd evans && npx friend-repos-clone-all .
       - name: build:en
-        run: cd evans && npm run build:en
+        run: cd evans && ANALYZE_BUNDLE_SIZE=true npm run build:en
+      - name: upload-report (pr)
+        if: github.ref != 'refs/heads/master'
+        uses: friends-library-dev/action-do-spaces-upload@master
+        with:
+          acl: public-read
+          src-file-path: ./evans/public/report.html
+          destination-object-key:
+            actions/bundle/pr-${{ needs.setup.outputs.pull_request_number }}.html
+          access-key-id: ${{ secrets.CLOUD_STORAGE_KEY }}
+          access-key-secret: ${{ secrets.CLOUD_STORAGE_SECRET }}
+          bucket: ${{ secrets.CLOUD_STORAGE_BUCKET }}
+          region: ${{ secrets.CLOUD_STORAGE_REGION }}
+          remove-src-after-upload: true
+      - name: upload-report (master)
+        if: github.ref == 'refs/heads/master'
+        uses: friends-library-dev/action-do-spaces-upload@master
+        with:
+          acl: public-read
+          src-file-path: ./evans/public/report.html
+          destination-object-key: actions/bundle/master.html
+          access-key-id: ${{ secrets.CLOUD_STORAGE_KEY }}
+          access-key-secret: ${{ secrets.CLOUD_STORAGE_SECRET }}
+          bucket: ${{ secrets.CLOUD_STORAGE_BUCKET }}
+          region: ${{ secrets.CLOUD_STORAGE_REGION }}
+          remove-src-after-upload: true
       - name: deploy
         id: deploy
         uses: friends-library/friends-library/actions/deploy@actions
@@ -141,9 +166,13 @@ jobs:
         with:
           sha: ${{ needs.setup.outputs.latest_commit_sha }}
           body: |
-            Deploy previews for commit ${{ needs.setup.outputs.latest_commit_sha_short }}
+            Deploy previews for commit ${{ needs.setup.outputs.latest_commit_sha_short }}:
             - English: [${{ needs.build-en.outputs.deploy_url }}](${{ needs.build-en.outputs.deploy_url }})
             - Spanish: [${{ needs.build-es.outputs.deploy_url }}](${{ needs.build-es.outputs.deploy_url }})
+
+            Bundle report for commit ${{ needs.setup.outputs.latest_commit_sha_short }}:
+            - [this PR](${{ secrets.CLOUD_STORAGE_BUCKET_URL }}/actions/bundle/pr-${{ needs.setup.outputs.pull_request_number }}.html)
+            - [baseline: master](${{ secrets.CLOUD_STORAGE_BUCKET_URL }}/actions/bundle/master.html)
 
   storybook:
     name: build-storybook
