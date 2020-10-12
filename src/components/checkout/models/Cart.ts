@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { ReallySmallEvents as EventEmitter } from 'really-small-events';
 import CartItem, { CartItemData } from './CartItem';
 import { Address } from '../types';
 import { isAddress, isItem, migrateArrayTitle } from './integrity';
@@ -53,7 +53,7 @@ export default class Cart extends EventEmitter {
 
   public set items(items: CartItem[]) {
     this._items = items;
-    this.emit(`change`);
+    this.trigger(`change`);
   }
 
   public get items(): CartItem[] {
@@ -72,14 +72,14 @@ export default class Cart extends EventEmitter {
     for (const item of this.items) {
       if (item.equals(newItem)) {
         item.quantity++;
-        this.emit(`change`);
-        this.emit(`add-item`);
+        this.trigger(`change`);
+        this.trigger(`add-item`);
         return;
       }
     }
     this._items.push(newItem);
-    this.emit(`change`);
-    this.emit(`add-item`);
+    this.trigger(`change`);
+    this.trigger(`add-item`);
   }
 
   public subTotal(): number {

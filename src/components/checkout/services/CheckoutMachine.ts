@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { ReallySmallEvents as EventEmitter } from 'really-small-events';
 import { checkoutErrors as Err } from '@friends-library/types';
 import CheckoutService from './CheckoutService';
 
@@ -113,7 +113,7 @@ export default class CheckoutMachine extends EventEmitter {
   }
 
   public close(): void {
-    this.emit(`close`);
+    this.trigger(`close`);
     this.transitionTo(`closed`);
     this.dispatch(`next`);
   }
@@ -127,7 +127,7 @@ export default class CheckoutMachine extends EventEmitter {
 
     this.state = state;
     this.history.push(state);
-    this.emit(`state:change`, state);
+    this.trigger(`state:change`, state);
 
     if (!Object.prototype.hasOwnProperty.call(nextState, `onEnter`)) {
       return;

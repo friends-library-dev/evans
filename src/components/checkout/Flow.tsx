@@ -22,7 +22,7 @@ const CheckoutFlow: React.FC<Props> = ({ machine, recommendedBooks }) => {
   useEffect(() => {
     machine.on(`state:change`, setState);
     return () => {
-      machine.removeListener(`state:change`, setState);
+      machine.off(`state:change`, setState);
     };
   }, [machine]);
 

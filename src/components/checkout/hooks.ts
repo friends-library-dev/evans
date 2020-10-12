@@ -9,7 +9,7 @@ export function useNumCartItems(): [number, (numItems: number) => void, CartStor
   useEffect(() => {
     store.on(`cart:changed`, onChange);
     return () => {
-      store.removeListener(`cart:changed`, onChange);
+      store.off(`cart:changed`, onChange);
     };
   }, []);
   return [numItems, setNumItems, store];
@@ -21,7 +21,7 @@ export function useCartTotalQuantity(): [number, (qty: number) => void, CartStor
   useEffect(() => {
     store.on(`cart:changed`, onChange);
     return () => {
-      store.removeListener(`cart:changed`, onChange);
+      store.off(`cart:changed`, onChange);
     };
   }, []);
   return [quantity, setQuantity, store];

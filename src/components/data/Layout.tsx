@@ -52,8 +52,8 @@ const Layout: React.FC = ({ children }) => {
     store.on(`toggle:visibility`, setCheckoutModalOpen);
     store.on(`cart:item-added`, setJustAdded);
     return () => {
-      store.removeListener(`toggle:visibility`, setCheckoutModalOpen);
-      store.removeListener(`cart:item-added`, setJustAdded);
+      store.off(`toggle:visibility`, setCheckoutModalOpen);
+      store.off(`cart:item-added`, setJustAdded);
     };
   }, []);
 

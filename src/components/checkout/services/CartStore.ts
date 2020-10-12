@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { ReallySmallEvents as EventEmitter } from 'really-small-events';
 import Cookies from 'js-cookie';
 import Cart from '../models/Cart';
 
@@ -22,10 +22,10 @@ export default class CartStore extends EventEmitter {
 
     this.cart.on(`change`, () => {
       Cookies.set(`flp-cart`, JSON.stringify(this.cart.toJSON()));
-      this.emit(`cart:changed`);
+      this.trigger(`cart:changed`);
     });
 
-    this.cart.on(`add-item`, () => this.emit(`cart:item-added`));
+    this.cart.on(`add-item`, () => this.trigger(`cart:item-added`));
   }
 
   public isOpen(): boolean {
@@ -34,14 +34,14 @@ export default class CartStore extends EventEmitter {
 
   public close(): void {
     this._isOpen = false;
-    this.emit(`hide`);
-    this.emit(`toggle:visibility`, false);
+    this.trigger(`hide`);
+    this.trigger(`toggle:visibility`, false);
   }
 
   public open(): void {
     this._isOpen = true;
-    this.emit(`show`);
-    this.emit(`toggle:visibility`, true);
+    this.trigger(`show`);
+    this.trigger(`toggle:visibility`, true);
     if (!this.stripeLoaded) {
       this.loadStripe();
     }
