@@ -2,6 +2,7 @@ node_modules/
 .cache/
 public
 src/build/.dpc-cache.json
+src/css/cover.css
 jest.config.js
 reduxcache*/
 functions

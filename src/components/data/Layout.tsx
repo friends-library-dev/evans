@@ -4,10 +4,6 @@ import cx from 'classnames';
 import smoothscroll from 'smoothscroll-polyfill';
 import { Helmet } from 'react-helmet';
 import { t } from '@friends-library/locale';
-import {
-  CoverWebStylesAllStatic,
-  CoverWebStylesSizes,
-} from '@friends-library/cover-component';
 import Checkout from './Checkout';
 import Slideover from '../Slideover';
 import { LANG } from '../env';
@@ -116,8 +112,6 @@ const Layout: React.FC = ({ children }) => {
           </Dual.P>
         </PopUnder>
       )}
-      <CoverWebStylesAllStatic />
-      <CoverWebStylesSizes />
       <Slideover close={() => setMenuOpen(false)} />
       <Nav
         onHamburgerClick={() => setMenuOpen(!menuOpen)}

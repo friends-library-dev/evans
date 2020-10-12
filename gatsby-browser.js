@@ -1,4 +1,5 @@
 import './src/css/tailwind.css';
+import './src/css/cover.css';
 
 export function onClientEntry() {
   // polyfill document.querySelectorAll().forEach support
