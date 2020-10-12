@@ -47,6 +47,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-preact`,
 
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-typescript`,

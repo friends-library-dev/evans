@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundImage from 'gatsby-background-image';
+import BackgroundImage from 'gatsby-background-image-preact';
 import { FluidBgImageObject } from '@friends-library/types';
 import Dual from '../../../Dual';
 import { bgLayer } from '../../../lib/color';

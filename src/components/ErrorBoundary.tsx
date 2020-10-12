@@ -19,6 +19,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
 
   public componentDidCatch(error: any, errorInfo: any): void {
     if (NODE_ENV === `development`) {
+      console.error(error);
       return;
     }
 

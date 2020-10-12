@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import BackgroundImage from 'gatsby-background-image';
+import BackgroundImage from 'gatsby-background-image-preact';
 import { FluidBgImageObject } from '@friends-library/types';
 import { bgLayer } from '../lib/color';
 import './MultiBookBgBlock.css';
