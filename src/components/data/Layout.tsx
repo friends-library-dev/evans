@@ -90,6 +90,11 @@ const Layout: React.FC = ({ children }) => {
             ][LANG === `en` ? 0 : 1]
           }
         />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com/"
+          crossOrigin="anonymous"
+        />
         {process.env.GATSBY_NETLIFY_CONTEXT === `preview` && (
           <meta name="robots" content="noindex, nofollow" />
         )}
