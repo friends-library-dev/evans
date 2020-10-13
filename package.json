@@ -30,7 +30,7 @@
     "format": "fldev format"
   },
   "dependencies": {
-    "@friends-library/cover-component": "^2.0.0",
+    "@friends-library/cover-component": "^3.0.0",
     "@friends-library/locale": "^1.0.0",
     "@friends-library/lulu": "^1.1.1",
     "@friends-library/types": "^1.1.2",
