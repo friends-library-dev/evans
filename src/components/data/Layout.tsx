@@ -95,9 +95,12 @@ const Layout: React.FC = ({ children }) => {
         )}
         <link
           href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css"
-          rel="stylesheet prefetch"
+          rel="stylesheet preload prefetch"
         />
-        <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.2.0/dist/fetch.umd.min.js" />
+        <script
+          src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.2.0/dist/fetch.umd.min.js"
+          defer
+        />
         <body className={cx({ webp, 'no-webp': webp === false, 'no-js': !jsEnabled })} />
       </Helmet>
       {itemJustAdded && (
