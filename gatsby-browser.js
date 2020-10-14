@@ -1,3 +1,4 @@
+import './src/css/fontawesome.css';
 import './src/css/tailwind.css';
 import './src/css/cover.css';
 

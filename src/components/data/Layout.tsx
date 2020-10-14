@@ -98,10 +98,6 @@ const Layout: React.FC = ({ children }) => {
         {process.env.GATSBY_NETLIFY_CONTEXT === `preview` && (
           <meta name="robots" content="noindex, nofollow" />
         )}
-        <link
-          href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css"
-          rel="stylesheet preload prefetch"
-        />
         <script
           src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.2.0/dist/fetch.umd.min.js"
           defer
