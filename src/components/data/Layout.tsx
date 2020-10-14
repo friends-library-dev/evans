@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import cx from 'classnames';
-import smoothscroll from 'smoothscroll-polyfill';
 import { Helmet } from 'react-helmet';
 import { t } from '@friends-library/locale';
 import Checkout from './Checkout';
@@ -27,7 +26,6 @@ const Layout: React.FC = ({ children }) => {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState<boolean>(false);
   const [itemJustAdded, setItemJustAdded] = useState<boolean>(false);
 
-  useEffect(() => smoothscroll.polyfill(), []);
   useEffect(() => setJsEnabled(true), []);
 
   // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/img/webp.js
@@ -98,10 +96,6 @@ const Layout: React.FC = ({ children }) => {
         {process.env.GATSBY_NETLIFY_CONTEXT === `preview` && (
           <meta name="robots" content="noindex, nofollow" />
         )}
-        <script
-          src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.2.0/dist/fetch.umd.min.js"
-          defer
-        />
         <body className={cx({ webp, 'no-webp': webp === false, 'no-js': !jsEnabled })} />
       </Helmet>
       {itemJustAdded && (
