@@ -40,7 +40,7 @@ const ListenBlock: React.FC<Props> = (props) => {
 
   useEffect(() => {
     // @ts-ignore
-    if (window.navigator?.connection?.downlink < 2.5) {
+    if (window.navigator?.connection?.downlink < 1.5) {
       setQuality(`LQ`);
     }
   }, []);
