@@ -2,6 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
+    "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
     "module": "CommonJS",
