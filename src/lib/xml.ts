@@ -3,18 +3,28 @@ import moment from 'moment';
 import { Audio, Document, Edition, AudioPart } from '@friends-library/friends';
 import { AudioQuality } from '@friends-library/types';
 import env from '@friends-library/env';
+import * as docMeta from '@friends-library/document-meta';
 import { LANG, APP_URL } from '../env';
 import { podcastUrl, mp3PartDownloadUrl } from './url';
 
-export function podcast(
+export async function podcast(
   document: Document,
   edition: Edition,
   quality: AudioQuality,
-): string {
+): Promise<string> {
   const { friend } = document;
   const { audio } = edition;
   if (!audio) {
     throw new Error(`Document has no audio`);
+  }
+
+  const meta = await docMeta.fetchSingleton();
+  const edMeta = meta.get(edition.path);
+  if (!edMeta) {
+    throw new Error(`Missing edition meta for podcast xml creation: ${edition.path}`);
+  }
+  if (!edMeta.audio) {
+    throw new Error(`Edition meta missing audio info: ${edition.path}`);
   }
 
   const { CLOUD_STORAGE_BUCKET_URL: CLOUD_URL } = env.require(`CLOUD_STORAGE_BUCKET_URL`);
@@ -63,7 +73,7 @@ export function podcast(
       <title>${partTitle(part, num, audio.parts.length)}</title>
       <enclosure
         url="${APP_URL}${mp3PartDownloadUrl(audio, quality, index)}"
-        length="${part.filesizeHq}"
+        length="${edMeta.audio?.[quality].parts[index].mp3Size}"
         type="audio/mpeg"
       />
       <itunes:author>${encode(friend.name)}</itunes:author>
@@ -78,7 +88,7 @@ export function podcast(
         ? launchDate
         : moment(audio.added)
       ).format(`ddd, DD MMM YYYY hh:mm:ss ZZ`)}</pubDate>
-      <itunes:duration>${part.seconds}</itunes:duration>
+      <itunes:duration>${edMeta.audio?.durations[index]}</itunes:duration>
       <itunes:order>${num}</itunes:order>
       <itunes:explicit>clean</itunes:explicit>
       <itunes:episodeType>full</itunes:episodeType>

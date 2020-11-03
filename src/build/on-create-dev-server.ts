@@ -9,13 +9,13 @@ const onCreateDevServer: GatsbyNode['onCreateDevServer'] = ({
     if (!edition.audio) {
       return;
     }
-    app.get(edition.audio.podcastRelFilepath(`HQ`), (req: any, res: any) => {
+    app.get(edition.audio.podcastRelFilepath(`HQ`), async (req: any, res: any) => {
       res.type(`application/xml`);
-      res.send(podcast(document, edition, `HQ`));
+      res.send(await podcast(document, edition, `HQ`));
     });
-    app.get(edition.audio.podcastRelFilepath(`LQ`), (req: any, res: any) => {
+    app.get(edition.audio.podcastRelFilepath(`LQ`), async (req: any, res: any) => {
       res.type(`application/xml`);
-      res.send(podcast(document, edition, `LQ`));
+      res.send(await podcast(document, edition, `LQ`));
     });
   });
 };

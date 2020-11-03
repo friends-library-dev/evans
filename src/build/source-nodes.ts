@@ -8,7 +8,7 @@ import { fetch } from '@friends-library/document-meta';
 import { query, hydrate } from '@friends-library/dpc-fs';
 import { red } from 'x-chalk';
 import { htmlShortTitle, htmlTitle } from '@friends-library/adoc-convert';
-import { allDocsMap, justHeadings } from './helpers';
+import { allDocsMap, justHeadings, audioDurationStr } from './helpers';
 import { getDpcCache, persistDpcCache, EditionCache } from './dpc-cache';
 import residences from './residences';
 import * as url from '../lib/url';
@@ -115,8 +115,8 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
           }
         }
 
-        if (edition.audio && !editionMeta.audioFilesizes) {
-          red(`Unexpected missing audio filesize data: ${edition.path}`);
+        if (edition.audio && !editionMeta.audio) {
+          red(`Unexpected missing audio meta data: ${edition.path}`);
         }
 
         if (!editionMeta.published) {
@@ -145,14 +145,14 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
                 reader: edition.audio.reader,
                 added: edition.audio.added.toISOString(),
                 complete: edition.audio.complete,
-                duration: edition.audio.duration,
+                duration: audioDurationStr(editionMeta.audio?.durations ?? [0]),
                 publishedDate: published(edition.audio.added.toISOString(), LANG)
                   .publishedDate,
                 parts: edition.audio.parts.map((part) => part.toJSON()),
-                m4bFilesizeHq: humansize(editionMeta.audioFilesizes?.m4bHq || 0),
-                m4bFilesizeLq: humansize(editionMeta.audioFilesizes?.m4bLq || 0),
-                mp3ZipFilesizeHq: humansize(editionMeta.audioFilesizes?.mp3ZipHq || 0),
-                mp3ZipFilesizeLq: humansize(editionMeta.audioFilesizes?.mp3ZipLq || 0),
+                m4bFilesizeHq: humansize(editionMeta.audio?.HQ.m4bSize ?? 0),
+                m4bFilesizeLq: humansize(editionMeta.audio?.LQ.m4bSize ?? 0),
+                mp3ZipFilesizeHq: humansize(editionMeta.audio?.HQ.mp3ZipSize ?? 0),
+                mp3ZipFilesizeLq: humansize(editionMeta.audio?.LQ.mp3ZipSize ?? 0),
                 m4bUrlHq: url.m4bDownloadUrl(edition.audio, `HQ`),
                 m4bUrlLq: url.m4bDownloadUrl(edition.audio, `LQ`),
                 mp3ZipUrlHq: url.mp3ZipDownloadUrl(edition.audio, `HQ`),

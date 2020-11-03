@@ -7,11 +7,11 @@ import { sendSearchDataToAlgolia } from './algolia';
 import { LANG } from '../env';
 
 const onPostBuild: GatsbyNode['onPostBuild'] = async () => {
-  eachEdition(({ friend, document, edition }) => {
+  eachEdition(async ({ friend, document, edition }) => {
     if (friend.lang === LANG && edition.audio) {
-      const xmlHq = podcast(document, edition, `HQ`);
+      const xmlHq = await podcast(document, edition, `HQ`);
       fs.outputFileSync(`./public/${edition.audio.podcastRelFilepath(`HQ`)}`, xmlHq);
-      const xmlLq = podcast(document, edition, `LQ`);
+      const xmlLq = await podcast(document, edition, `LQ`);
       fs.outputFileSync(`./public/${edition.audio.podcastRelFilepath(`LQ`)}`, xmlLq);
     }
   });
