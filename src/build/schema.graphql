@@ -58,6 +58,7 @@ type Audio {
   complete: Boolean!
   duration: String!
   publishedDate: String!
+  publishedTimestamp: Int!
   parts: [AudioPart!]!
   m4bUrlHq: String!
   m4bUrlLq: String!
