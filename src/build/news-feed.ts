@@ -2,6 +2,7 @@ import { DocumentMeta } from '@friends-library/document-meta';
 import { Friend, Edition, Document } from '@friends-library/friends';
 import { Lang, NewsFeedType } from '@friends-library/types';
 import { htmlShortTitle } from '@friends-library/adoc-convert';
+import { t } from '@friends-library/locale';
 import { spanishShortMonth } from '../lib/date';
 import { documentUrl } from '../lib/url';
 import { APP_ALT_URL } from '../env';
@@ -47,7 +48,7 @@ export function getNewsFeedItems(
       }
       if (edition.audio) {
         items.push({
-          title: `${title} &mdash; (Audiobook)`,
+          title: `${title} &mdash; (${t`Audiobook`})`,
           type: `audiobook`,
           url: `${documentUrl(document)}#audiobook`,
           description:
