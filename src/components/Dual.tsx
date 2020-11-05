@@ -18,6 +18,7 @@ const DualComponent: React.FC<Props> = (props) => {
   return <Tag {...forwardProps}>{useChildren}</Tag>;
 };
 
+const Div: React.FC<PartialProps> = (props) => <DualComponent el="div" {...props} />;
 const P: React.FC<PartialProps> = (props) => <DualComponent el="p" {...props} />;
 const A: React.FC<PartialProps> = (props) => <DualComponent el="a" {...props} />;
 const Span: React.FC<PartialProps> = (props) => <DualComponent el="span" {...props} />;
@@ -28,6 +29,7 @@ const H4: React.FC<PartialProps> = (props) => <DualComponent el="h4" {...props} 
 const Frag: React.FC<PartialProps> = (props) => <DualComponent {...props} />;
 
 export default {
+  Div,
   P,
   A,
   H1,

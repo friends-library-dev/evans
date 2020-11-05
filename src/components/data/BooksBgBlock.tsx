@@ -20,3 +20,9 @@ const BooksBgBlock: React.FC<Props> = (props) => {
 };
 
 export default BooksBgBlock;
+
+export const WhiteOverlay: React.FC = ({ children }) => (
+  <div className="bg-white text-center py-12 md:py-16 lg:py-20 px-10 sm:px-16 my-6 max-w-screen-md mx-auto">
+    {children}
+  </div>
+);

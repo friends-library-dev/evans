@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import BooksBgBlock from '../components/data/BooksBgBlock';
+import BooksBgBlock, { WhiteOverlay } from '../components/data/BooksBgBlock';
 import { Layout, Seo } from '../components/data';
 import { SiteMetadata } from '../types';
 
@@ -98,12 +98,11 @@ const StaticPage: React.FC<Props> = ({ data }) => {
         description={replaceCounts(frontmatter.description)}
       />
       <BooksBgBlock bright>
-        <h1
-          className="max-w-screen-md mx-auto px-6 py-16 heading-text text-2xl sm:text-4xl bracketed text-flprimary"
-          style={{ backgroundColor: `rgba(255, 255, 255, 0.85)` }}
-        >
-          {frontmatter.title}
-        </h1>
+        <WhiteOverlay>
+          <h1 className="heading-text text-2xl sm:text-4xl bracketed text-flprimary">
+            {frontmatter.title}
+          </h1>
+        </WhiteOverlay>
       </BooksBgBlock>
       <div className="MDX p-10 md:px-16 lg:px-24 body-text max-w-6xl mx-auto mt-4">
         <MDXProvider components={components}>

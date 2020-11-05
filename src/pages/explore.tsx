@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { FluidBgImageObject } from '@friends-library/types';
 import { t } from '@friends-library/locale';
 import { Layout, Seo } from '../components/data';
-import BooksBgBlock from '../components/data/BooksBgBlock';
+import BooksBgBlock, { WhiteOverlay } from '../components/data/BooksBgBlock';
 import ExploreNavBlock from '../components/pages/explore/NavBlock';
 import ExploreRegionBlock from '../components/pages/explore/RegionBlock';
 import ExploreSearchBlock from '../components/pages/explore/SearchBlock';
@@ -46,7 +46,7 @@ const ExplorePage: React.FC<Props> = ({
         .replace(/%NUM_AUDIOBOOKS%/g, `${audioBooks.nodes.length}`)}
     />
     <BooksBgBlock bright>
-      <div className="bg-white text-center py-12 md:py-16 lg:py-20 px-10 sm:px-16 my-6 max-w-screen-md mx-auto">
+      <WhiteOverlay>
         <Dual.H1 className="sans-wider text-3xl mb-6">
           <>Explore Books</>
           <>Explorar Libros</>
@@ -65,7 +65,7 @@ const ExplorePage: React.FC<Props> = ({
             audiolibros, o buscar libros en la categoría particular que más te interese.
           </>
         </Dual.P>
-      </div>
+      </WhiteOverlay>
     </BooksBgBlock>
     <ExploreNavBlock />
     <ExploreUpdatedEditionsBlock
