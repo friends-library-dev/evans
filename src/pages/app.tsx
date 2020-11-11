@@ -8,6 +8,7 @@ import { t } from '@friends-library/locale';
 import { PAGE_META_DESCS } from '../lib/seo';
 import { Layout, Seo } from '../components/data';
 import Dual from '../components/Dual';
+import * as AppBadges from '../components/AppBadges';
 import { LANG } from '../env';
 
 interface Screenshot {
@@ -47,22 +48,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
           links below to download the right app for your phone or device.
         </p>
         <div className="max-w-xs sm:max-w-lg px-6 flex flex-col sm:flex-row space-y-6  sm:space-y-0 sm:space-x-8 items-center mb-10">
-          <a
-            href={`https://apps.apple.com/us/app/friends-library/id${
-              LANG === `en` ? `1537124207` : `1538800203`
-            }`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={`/app-store.${LANG}.png`} alt="Download on the App Store" />
-          </a>
-          <a
-            href={`https://play.google.com/store/apps/details?id=com.friendslibrary.FriendsLibrary.${LANG}.release`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={`/google-play.${LANG}.png`} alt="Download on the App Store" />
-          </a>
+          <AppBadges.Ios />
+          <AppBadges.Android />
         </div>
         <h3 className="text-flgray-900 text-2xl tracking-widest mb-6">
           Easier <span className="underline">audiobooks</span> now, with more to come
