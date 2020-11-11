@@ -59,12 +59,25 @@ const DownloadLinks: React.FC<Props> = (props) => {
       <div className="tracking-widest antialiased flex flex-col items-center">
         <dl className="text-flgray-900 inline-block">
           <dt className="uppercase text-md mb-1">
+            <Link to={t`/app`} className="hover:underline">
+              <span className="sm:hidden">Get the App</span>
+              <span className="hidden sm:inline">Download in the App</span>
+            </Link>
+            <Link
+              to={t`/app`}
+              className="text-xs normal-case bg-flprimary text-white rounded-full -mt-1 ml-4 px-6 py-1"
+            >
+              {t`Recommended`}
+            </Link>
+          </dt>
+          <dd className="text-flgray-500 text-xs mb-4 pb-1">
+            (Listen <span className="hidden sm:inline">on your phone</span> with our iOS
+            or Android app)
+          </dd>
+          <dt className="uppercase text-md mb-1">
             <a href={links.podcast} className="hover:underline">
               <span className="hidden sm:inline">{t`Download as`} </span>Podcast
             </a>
-            <span className="text-xs normal-case bg-flprimary text-white rounded-full -mt-1 ml-4 px-6 py-1">
-              {t`Recommended`}
-            </span>
           </dt>
           <dd className="text-flgray-500 text-xs mb-4 pb-1">
             (Apple Podcasts, Stitcher,{` `}
