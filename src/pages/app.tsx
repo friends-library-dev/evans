@@ -76,8 +76,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
             even for knowledgable users. The first version of our iPhone and Android apps
             are focused on making is super easy to download and listen to any of our
             audiobooks, wherever you are. Just select an audiobook from the list and press
-            play. You can download whole books while you're connected to Wifi, and listen
-            to them conveniently later when you may or may not have internet.
+            play. You can download whole books while you&rsquo;re connected to Wifi, and
+            listen to them conveniently later when you may or may not have internet.
           </>
           <>
             Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}

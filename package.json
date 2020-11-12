@@ -25,7 +25,7 @@
     "start": "gatsby develop --port 9222",
     "test": "fldev test",
     "compile": "true",
-    "lint": "fldev lint",
+    "lint": "fldev lint --rule 'react/no-unescaped-entities: 1'",
     "lint:fix": "npm run lint -- --fix",
     "ts:check": "fldev ts:check",
     "format": "fldev format"
