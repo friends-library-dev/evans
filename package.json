@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@friends-library/cover-component": "^3.1.1",
-    "@friends-library/locale": "^1.0.0",
+    "@friends-library/locale": "^1.1.0",
     "@friends-library/lulu": "^1.2.1",
     "@friends-library/types": "^3.0.0",
     "@reach/accordion": "^0.11.2",
