@@ -73,8 +73,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Friends Library currently has {data.audioBooks.totalCount} titles recorded as
             audiobooks, with more being added regularly. Unfortunately, downloading and
             listening to our audiobooks directly from this website is quite difficult,
-            even for knowledgable users. The first version of our iPhone and Android apps
-            are focused on making is super easy to download and listen to any of our
+            even for knowledgeable users. The first version of our iPhone and Android apps
+            are focused on making it super easy to download and listen to any of our
             audiobooks, wherever you are. Just select an audiobook from the list and press
             play. You can download whole books while you&rsquo;re connected to Wifi, and
             listen to them conveniently later when you may or may not have internet.
@@ -108,9 +108,9 @@ const AppPage: React.FC<Props> = ({ data }) => {
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
             In the future, we plan to add a number of useful features to the app, all with
-            goal of making it easier for everyone to find, listen, read and benefit from
-            these invaluable writings. It is our hope that many would be encouraged to
-            faithfully and fervently follow in the footsteps of these exemplary men and
+            the goal of making it easier for everyone to find, listen, read and benefit
+            from these invaluable writings. It is our hope that many would be encouraged
+            to faithfully and fervently follow in the footsteps of these exemplary men and
             women who ran well and fought the good fight, leaving us many precious
             testimonies of lives fully surrendered to the grace, light and spirit of our
             Lord Jesus Christ.
@@ -156,7 +156,7 @@ const AppPage: React.FC<Props> = ({ data }) => {
             te parece que deberíamos añadir. ¡Gracias por probarla! Para conocer los
             detalles de la política de privacidad de nuestra aplicación,{` `}
             <Link to={`/app-privacy`} className="text-flprimary fl-underline">
-              ngresa aquí.
+              ingresa aquí.
             </Link>
           </>
         </Dual.P>
