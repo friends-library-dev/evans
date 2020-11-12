@@ -69,7 +69,7 @@
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.11.0",
     "@friends-library/adoc-convert": "^1.2.0",
-    "@friends-library/dev": "^4.1.12",
+    "@friends-library/dev": "^4.1.13",
     "@friends-library/document-meta": "^2.0.0",
     "@friends-library/dpc-fs": "^1.1.1",
     "@friends-library/env": "^1.2.0",
