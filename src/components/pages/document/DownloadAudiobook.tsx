@@ -59,20 +59,38 @@ const DownloadLinks: React.FC<Props> = (props) => {
       <div className="tracking-widest antialiased flex flex-col items-center">
         <dl className="text-flgray-900 inline-block">
           <dt className="uppercase text-md mb-1">
-            <Link to={t`/app`} className="hover:underline">
-              <span className="sm:hidden">Get the App</span>
-              <span className="hidden sm:inline">Download in the App</span>
+            <Link to="/app" className="hover:underline">
+              <Dual.Span className="sm:hidden">
+                <>Get the App</>
+                <>Obtén la aplicación</>
+              </Dual.Span>
+              <Dual.Span className="hidden sm:inline">
+                <>Download in the App</>
+                <>Descarga en la aplicación</>
+              </Dual.Span>
             </Link>
             <Link
-              to={t`/app`}
+              to="/app"
               className="text-xs normal-case bg-flprimary text-white rounded-full -mt-1 ml-4 px-6 py-1"
             >
               {t`Recommended`}
             </Link>
           </dt>
           <dd className="text-flgray-500 text-xs mb-4 pb-1">
-            (Listen <span className="hidden sm:inline">on your phone</span> with our iOS
-            or Android app)
+            <Dual.Frag>
+              <>
+                (Listen <span className="hidden sm:inline">on your phone</span> with our
+                iOS or Android app)
+              </>
+              <>
+                <span className="sm:hidden">
+                  Escucha con nuestra aplicación iOS o Android
+                </span>
+                <span className="hidden sm:inline">
+                  Escucha en tu teléfono con la aplicación iOS o Android
+                </span>
+              </>
+            </Dual.Frag>
           </dd>
           <dt className="uppercase text-md mb-1">
             <a href={links.podcast} className="hover:underline">

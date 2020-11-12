@@ -133,6 +133,22 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`en`],
+      type: `feature`,
+      title: `Friends Library App Released`,
+      description: `Friends Library App for iOS and Android now available!`,
+      ...dateFields(`2020-11-12T16:27:48.609Z`, formatter, `es`),
+      url: `/app`,
+    },
+    {
+      lang: [`es`],
+      type: `feature`,
+      title: `Nueva Aplicación para la Biblioteca de los Amigos`,
+      description: `¡Ya se encuentra disponible la Aplicación para dispositivos iOS y Android!`,
+      ...dateFields(`2020-11-12T16:27:48.609Z`, formatter, `es`),
+      url: `/app`,
+    },
+    {
       lang: [`es`],
       type: `chapter`,
       title: `Historia de los Cuáqueros &mdash; (Capítulo 3)`,

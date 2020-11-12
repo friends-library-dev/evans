@@ -101,7 +101,7 @@ export const PAGE_META_DESCS = {
   },
   app: {
     en: `The Friends Library Android and iOS (iPhone and iPad) apps allow users to freely and easily download and listen to all of the audiobooks available from this site. All audiobooks were written by early members of the Religious Society of Friends (Quakers).`,
-    es: `The Friends Library Android and iOS (iPhone and iPad) apps allow users to freely and easily download and listen to all of the audiobooks available from this site. All audiobooks were written by early members of the Religious Society of Friends (Quakers).`,
+    es: `La aplicación de la Biblioteca de los Amigos (disponible en iOS para Iphone y Ipad, y en Android), les permite a los usuarios descargar y escuchar de forma gratuita y sencilla todos los audiolibros de nuestro sitio. Todos estos audiolibros han sido escritos por los primeros miembros de la Sociedad Religiosa de Amigos (Cuáqueros)`,
   },
   friends: {
     en: `Friends Library currently contains books written by %NUM_FRIENDS% early members of the Religious Society of Friends (Quakers), and more authors are being added regularly. View all authors here, including William Penn, Isaac Penington, Robert Barclay, and George Fox. All books are available in their entirety for free download as EPUB, MOBI, PDF, and a growing number are available as audiobooks. Paperback copies are also available at very low cost.`,

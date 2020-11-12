@@ -1,4 +1,5 @@
 import React from 'react';
+import { t } from '@friends-library/locale';
 import { LANG } from './env';
 
 interface Props {
@@ -14,10 +15,7 @@ export const Ios: React.FC<Props> = ({ className }) => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img
-      src={`/app-store.${LANG}.png`}
-      alt={LANG === `en` ? `Download on the App Store` : `Consíguelo en el App Store`}
-    />
+    <img src={`/app-store.${LANG}.png`} alt={t`Download on the App Store`} />
   </a>
 );
 
@@ -28,9 +26,6 @@ export const Android: React.FC<Props> = ({ className }) => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <img
-      src={`/google-play.${LANG}.png`}
-      alt={LANG === `en` ? `Get it on Google Play` : `Disponible en Google Play`}
-    />
+    <img src={`/google-play.${LANG}.png`} alt={t`Get it on Google Play`} />
   </a>
 );
