@@ -193,7 +193,7 @@ export const query = graphql`
         }
       }
     }
-    audioEs: file(relativePath: { eq: "app-screens/app-splash.es.jpg" }) {
+    audioEs: file(relativePath: { eq: "app-screens/app-audio.es.jpg" }) {
       image: childImageSharp {
         fluid(quality: 90, maxHeight: 400) {
           ...GatsbyImageSharpFluid_withWebp
