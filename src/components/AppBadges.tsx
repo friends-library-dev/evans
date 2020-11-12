@@ -9,9 +9,7 @@ interface Props {
 export const Ios: React.FC<Props> = ({ className }) => (
   <a
     className={className}
-    href={`https://apps.apple.com/us/app/friends-library/id${
-      LANG === `en` ? `1537124207` : `1538800203`
-    }`}
+    href={`.netlify/functions/site/app/download/${LANG}/ios`}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -22,7 +20,7 @@ export const Ios: React.FC<Props> = ({ className }) => (
 export const Android: React.FC<Props> = ({ className }) => (
   <a
     className={className}
-    href={`https://play.google.com/store/apps/details?id=com.friendslibrary.FriendsLibrary.${LANG}.release`}
+    href={`.netlify/functions/site/app/download/${LANG}/android`}
     target="_blank"
     rel="noopener noreferrer"
   >
