@@ -38,8 +38,7 @@ const AltSiteBlock: React.FC<{ numBooks: number; url: string }> = ({ numBooks, u
           </a>
         </>
         <>
-          ¡Nosotros también tenemos {numBooks} libros disponibles en inglés! Visita a
-          nuestro{` `}
+          ¡También tenemos {numBooks} libros disponibles en inglés! Visita nuestro{` `}
           <a href={url} className="fl-underline">
             sitio en inglés aquí.
           </a>

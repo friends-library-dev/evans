@@ -66,7 +66,7 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Easier <span className="underline">audiobooks</span> now, with more to come
             soon!
           </>
-          <>¡Ahora es más fácil escuchar los audios, y pronto habrán más disponibles!</>
+          <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
         </Dual.H3>
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
