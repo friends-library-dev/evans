@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BackgroundImage from 'gatsby-background-image-preact';
+import BackgroundImage from 'gatsby-background-image';
 import { FluidBgImageObject } from '@friends-library/types';
 import { Book } from './types';
 import PillDropdown from '../../PillDropdown';

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import BackgroundImage from 'gatsby-background-image-preact';
+import BackgroundImage from 'gatsby-background-image';
 import cx from 'classnames';
 import { Lang, FluidBgImageObject } from '@friends-library/types';
 import { t } from '@friends-library/locale';
