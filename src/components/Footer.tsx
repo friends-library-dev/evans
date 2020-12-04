@@ -8,6 +8,7 @@ import { LANG } from './env';
 import FriendsLogo from './LogoFriends';
 import AmigosLogo from './LogoAmigos';
 import { bgLayer } from './lib/color';
+import GetAppLink from './GetAppLink';
 import './Footer.css';
 
 const Footer: React.FC<{ bgImg: FluidBgImageObject }> = ({ bgImg }) => {
@@ -48,6 +49,7 @@ const Footer: React.FC<{ bgImg: FluidBgImageObject }> = ({ bgImg }) => {
                 [t`/explore`, t`Explore Books`],
                 [t`/audiobooks`, t`Audiobooks`],
                 [t`/friends`, t`All Friends`],
+                () => <GetAppLink iconClassName="absolute transform -translate-y-1" />,
               ]}
             />
             <LinkList
@@ -83,9 +85,11 @@ const Footer: React.FC<{ bgImg: FluidBgImageObject }> = ({ bgImg }) => {
 
 export default Footer;
 
+type LinkItem = [string, string, Lang?] | (() => JSX.Element);
+
 const LinkList: React.FC<{
   title: string;
-  links: [string, string, Lang?][];
+  links: LinkItem[];
   last?: boolean;
 }> = ({ title, links, last }) => {
   return (
@@ -94,15 +98,23 @@ const LinkList: React.FC<{
       <dd>
         <ul className="text-gray-300">
           {links
-            .filter(([, , lang]) => !lang || lang === LANG)
-            .map(([href, text]) => (
-              <li
-                key={href}
-                className="mb-2 tracking-wider leading-tight pb-1 opacity-75 text-md"
-              >
-                <Link to={href}>{text}</Link>
-              </li>
-            ))}
+            .filter((item) => {
+              if (!Array.isArray(item)) {
+                return true;
+              }
+              const [, , lang] = item;
+              return !lang || lang === LANG;
+            })
+            .map((item, idx) => {
+              return (
+                <li
+                  key={`item-${idx}`}
+                  className="mb-2 tracking-wider leading-tight pb-1 opacity-75 text-md"
+                >
+                  {Array.isArray(item) ? <Link to={item[0]}>{item[1]}</Link> : item()}
+                </li>
+              );
+            })}
         </ul>
       </dd>
     </dl>

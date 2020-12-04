@@ -4,6 +4,11 @@
   background-position: 0 40%;
 }
 
+.Footer .GetAppLink {
+  display: inline-block;
+  transform: translateX(-0.57em);
+}
+
 .Footer dt::before {
   content: '[';
   @apply pr-2 opacity-50;
@@ -23,6 +28,12 @@
   }
   .Footer__main .columns:lang(en) {
     max-width: 620px;
+  }
+}
+
+@screen md {
+  .Footer .GetAppLink {
+    transform: none;
   }
 }
 

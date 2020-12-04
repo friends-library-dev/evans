@@ -4,7 +4,7 @@ import { Lang } from '@friends-library/types';
 import { t } from '@friends-library/locale';
 import FriendsLogo from './LogoFriends';
 import AmigosLogo from './LogoAmigos';
-// import Search from './algolia/TopNavSearchInput';
+import GetAppLink from './GetAppLink';
 import { LANG } from './env';
 import { useCartTotalQuantity } from './checkout/hooks';
 import './SlideoverMenu.css';
@@ -29,7 +29,6 @@ const SlideoverMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         <i className="w-12" />
       </header>
       <div className="py-12 pl-16 md:pl-24">
-        {/* <Search className="mb-4" expanded onClick={() => {}} onBlur={() => {}} /> */}
         <LinkGroup
           links={[
             [t`/getting-started`, t`Getting Started`],
@@ -50,6 +49,7 @@ const SlideoverMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         />
         <LinkGroup
           links={[
+            () => <GetAppLink iconClassName="transform translate-y-1" />,
             [t`/audio-help`, t`Audio Help`],
             [t`/ebook-help`, t`E-Book Help`],
             [t`/contact`, t`Contact Us`],

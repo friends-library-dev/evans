@@ -70,3 +70,7 @@
 .fa-times-circle:before {
   content: '\f057';
 }
+
+.fa-mobile:before {
+  content: '\f10b';
+}
