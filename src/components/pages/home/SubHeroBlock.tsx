@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import Image from 'gatsby-image';
 import { FluidImageObject } from '@friends-library/types';
 import { t } from '@friends-library/locale';
@@ -47,7 +48,12 @@ const SubHeroBlock: React.FC<Props> = ({
       </>
     </Dual.P>
     <ul className="flex flex-wrap font-sans text-white uppercase tracking-wider mt-8 mb-12 justify-center antialiased md:justify-start md:max-w-xl lg:max-w-none">
-      <li className="Format Format--audio">{t`Audiobooks`}</li>
+      <li className="Format Format--audio">
+        <Link
+          className="hover:underline cursor-pointer"
+          to={t`/audiobooks`}
+        >{t`Audiobooks`}</Link>
+      </li>
       <li className="Format Format--paperback">{t`Paperbacks`}</li>
       <li className="Format Format--ebook">{t`E-Books`}</li>
     </ul>
