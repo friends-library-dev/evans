@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@friends-library/cover-component": "^3.1.1",
-    "@friends-library/locale": "^1.1.0",
+    "@friends-library/locale": "^1.2.0",
     "@friends-library/lulu": "^1.2.1",
     "@friends-library/types": "^3.0.0",
     "@reach/accordion": "^0.11.2",
@@ -74,7 +74,7 @@
     "@friends-library/dpc-fs": "^1.1.1",
     "@friends-library/env": "^1.2.0",
     "@friends-library/friend-repos": "^1.1.0",
-    "@friends-library/friends": "^2.6.1",
+    "@friends-library/friends": "^2.7.0",
     "@friends-library/theme": "^1.1.0",
     "@types/classnames": "^2.2.10",
     "@types/fs-extra": "^9.0.1",
