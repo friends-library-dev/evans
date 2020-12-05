@@ -136,7 +136,7 @@ function getOutOfBandEvents(
       lang: [`es`],
       type: `chapter`,
       title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 1)`,
-      description: ` El primer capítulo de los <em>escritos de James Nayler</em> ya está disponible y se puede descargar gratuitamente.`,
+      description: ` El primer capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
       ...dateFields(`2020-12-04T19:17:21.951Z`, formatter, `es`),
       url: `/james-nayler/escritos`,
     },
