@@ -113,7 +113,7 @@ jobs:
           remove-src-after-upload: true
       - name: deploy
         id: deploy
-        uses: friends-library/friends-library/actions/deploy@actions
+        uses: friends-library-dev/action-ts-pack/actions/deploy@master
         with:
           netlify_api_token: ${{ secrets.NETLIFY_API_TOKEN }}
           site_id: ${{ secrets.DEPLOY_SITE_ID_EN }}
@@ -147,7 +147,7 @@ jobs:
         run: cd evans && npm run build:es
       - name: deploy
         id: deploy
-        uses: friends-library/friends-library/actions/deploy@actions
+        uses: friends-library-dev/action-ts-pack/actions/deploy@master
         with:
           netlify_api_token: ${{ secrets.NETLIFY_API_TOKEN }}
           site_id: ${{ secrets.DEPLOY_SITE_ID_ES }}
