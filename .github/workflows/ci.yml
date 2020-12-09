@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: meta
         id: meta
-        uses: friends-library/friends-library/actions/meta@actions
+        uses: friends-library-dev/action-ts-pack/actions/meta@master
         with:
           github_token: ${{ github.token }}
 
