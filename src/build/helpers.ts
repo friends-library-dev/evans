@@ -1,4 +1,5 @@
-import { allFriends, Friend, Document } from '@friends-library/friends';
+import { Friend, Document } from '@friends-library/friends';
+import { allFriends } from '@friends-library/friends/query';
 import { Slug, ISBN, Asciidoc } from '@friends-library/types';
 
 export function justHeadings(adoc: Asciidoc): Asciidoc {

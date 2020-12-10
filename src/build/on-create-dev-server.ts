@@ -1,4 +1,4 @@
-import { eachEdition } from '@friends-library/friends';
+import { eachEdition } from '@friends-library/friends/query';
 import { GatsbyNode, CreateDevServerArgs } from 'gatsby';
 import { podcast } from '../lib/xml';
 

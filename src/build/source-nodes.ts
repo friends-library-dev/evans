@@ -2,7 +2,7 @@ import '@friends-library/env/load';
 import { GatsbyNode, SourceNodesArgs } from 'gatsby';
 import filesize from 'filesize';
 import { PrintSize } from '@friends-library/types';
-import { allFriends } from '@friends-library/friends';
+import { allFriends } from '@friends-library/friends/query';
 import { price } from '@friends-library/lulu';
 import { fetch } from '@friends-library/document-meta';
 import { query, hydrate } from '@friends-library/dpc-fs';

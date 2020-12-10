@@ -1,6 +1,6 @@
 require(`@friends-library/env/load`);
 const proxy = require(`http-proxy-middleware`);
-const { numPublishedBooks } = require(`@friends-library/friends`);
+const { numPublishedBooks } = require(`@friends-library/friends/query`);
 
 const LANG = process.env.GATSBY_LANG === `es` ? `es` : `en`;
 

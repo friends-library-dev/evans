@@ -1,5 +1,5 @@
 import { artifactDownloadUrl } from '../url';
-import { getFriend } from '@friends-library/friends';
+import { getFriend } from '@friends-library/friends/query';
 
 describe(`artifactDownloadUrl()`, () => {
   it(`should return a correctly formed function log url`, () => {

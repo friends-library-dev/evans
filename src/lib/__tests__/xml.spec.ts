@@ -1,4 +1,5 @@
-import { getFriend, Audio, Document } from '@friends-library/friends';
+import { Audio, Document } from '@friends-library/friends';
+import { getFriend } from '@friends-library/friends/query';
 import { Lang } from '@friends-library/types';
 import { partTitle, partDesc, subtitle } from '../xml';
 

@@ -1,6 +1,7 @@
 import path from 'path';
 import { GatsbyNode, CreatePagesArgs } from 'gatsby';
-import { Document, allFriends } from '@friends-library/friends';
+import { Document } from '@friends-library/friends';
+import { allFriends } from '@friends-library/friends/query';
 import { documentUrl, friendUrl } from '../lib/url';
 import { LANG } from '../env';
 

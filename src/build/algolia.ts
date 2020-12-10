@@ -4,15 +4,14 @@ import { safeLoad as ymlToJs } from 'js-yaml';
 import algoliasearch from 'algoliasearch';
 import { t, translate } from '@friends-library/locale';
 import { htmlShortTitle } from '@friends-library/adoc-convert';
+import { Friend, Document } from '@friends-library/friends';
 import {
-  Friend,
-  Document,
   numPublishedBooks,
   allPublishedFriends,
   allPublishedAudiobooks,
   allPublishedUpdatedEditions,
   allFriends,
-} from '@friends-library/friends';
+} from '@friends-library/friends/query';
 import env from '@friends-library/env';
 import { friendUrl, documentUrl } from '../lib/url';
 import { LANG } from '../env';
