@@ -189,7 +189,7 @@ const DocBlock: React.FC<Props> = (props) => {
               </>
               <>
                 <sup>*</sup>
-                Este libro aun está siendo traducido, sin embargo, dado que cada capítulo
+                Este libro aún está siendo traducido, sin embargo, dado que cada capítulo
                 es muy valioso, estarán disponibles a medida que se vayan completando.
               </>
             </Dual.P>
