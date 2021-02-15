@@ -135,6 +135,14 @@ function getOutOfBandEvents(
     {
       lang: [`es`],
       type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulo 7)`,
+      description: `El séptimo capítulo de la <em>Historia de los Cuáqueros</em> ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2021-02-15T15:45:03.060Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
+      lang: [`es`],
+      type: `chapter`,
       title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 2)`,
       description: `El segundo capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
       ...dateFields(`2021-01-26T21:37:10.112Z`, formatter, `es`),
