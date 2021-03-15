@@ -135,6 +135,14 @@ function getOutOfBandEvents(
     {
       lang: [`es`],
       type: `chapter`,
+      title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 3)`,
+      description: `El tercer capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2021-03-15T16:25:41.152Z`, formatter, `es`),
+      url: `/james-nayler/escritos`,
+    },
+    {
+      lang: [`es`],
+      type: `chapter`,
       title: `Historia de los Cuáqueros &mdash; (Capítulo 8)`,
       description: `El octavo capítulo de la <em>Historia de los Cuáqueros</em> ya está disponible y se puede descargar gratuitamente.`,
       ...dateFields(`2021-03-12T19:11:41.166Z`, formatter, `es`),
