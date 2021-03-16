@@ -110,20 +110,25 @@ const Layout: React.FC = ({ children }) => {
           </Dual.P>
         </PopUnder>
       )}
-      <Slideover close={() => setMenuOpen(false)} />
-      <Nav
-        onHamburgerClick={() => setMenuOpen(!menuOpen)}
-        onCartBadgeClick={() => store.open()}
-        showCartBadge={numCartItems > 0}
-      />
-      <div
-        style={{ paddingTop: 70 }}
-        className="Content flex flex-col relative overflow-hidden bg-white min-h-screen"
-      >
-        {children}
-        <Footer bgImg={data.mountains.childImageSharp.fluid} />
-      </div>
-      <Checkout isOpen={checkoutModalOpen} />
+      {checkoutModalOpen ? (
+        <Checkout />
+      ) : (
+        <>
+          <Slideover close={() => setMenuOpen(false)} />
+          <Nav
+            onHamburgerClick={() => setMenuOpen(!menuOpen)}
+            onCartBadgeClick={() => store.open()}
+            showCartBadge={numCartItems > 0}
+          />
+          <div
+            style={{ paddingTop: 70 }}
+            className="Content flex flex-col relative overflow-hidden bg-white min-h-screen"
+          >
+            {children}
+            <Footer bgImg={data.mountains.childImageSharp.fluid} />
+          </div>
+        </>
+      )}
     </ErrorBoundary>
   );
 };

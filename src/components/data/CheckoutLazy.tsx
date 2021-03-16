@@ -14,7 +14,6 @@ const machine = new CheckoutMachine(service);
 machine.on(`close`, () => store.close());
 
 interface Props {
-  isOpen: boolean;
   recommended: {
     Cover: JSX.Element;
     title: string;
@@ -22,8 +21,7 @@ interface Props {
   }[];
 }
 
-const CheckoutLazy: React.FC<Props> = ({ isOpen, recommended }) => {
-  if (!isOpen) return null;
+const CheckoutLazy: React.FC<Props> = ({ recommended }) => {
   return (
     <CheckoutModal onClose={() => machine.close()}>
       <ErrorBoundary location="checkout">

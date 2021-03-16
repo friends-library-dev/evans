@@ -2,13 +2,9 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { cover3dFromQuery } from '../../lib/covers';
 
-interface Props {
-  isOpen: boolean;
-}
-
 const LazyCheckout = React.lazy(() => import(`./CheckoutLazy`));
 
-const Checkout: React.FC<Props> = ({ isOpen }) => {
+const Checkout: React.FC = () => {
   const data = useStaticQuery(graphql`
     query EmptyCartBooks {
       doc1: document(
@@ -62,8 +58,6 @@ const Checkout: React.FC<Props> = ({ isOpen }) => {
     }
   `);
 
-  if (!isOpen || typeof window === `undefined`) return null;
-
   const recommended = Object.values(data)
     .filter(Boolean)
     .map((docData: any) => ({
@@ -73,8 +67,8 @@ const Checkout: React.FC<Props> = ({ isOpen }) => {
     }));
 
   return (
-    <React.Suspense fallback={<div />}>
-      <LazyCheckout isOpen={isOpen} recommended={recommended} />
+    <React.Suspense fallback={<div className="fixed bg-white inset-0" />}>
+      <LazyCheckout recommended={recommended} />
     </React.Suspense>
   );
 };
