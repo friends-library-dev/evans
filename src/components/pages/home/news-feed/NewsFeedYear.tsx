@@ -9,8 +9,8 @@ interface Props {
 
 const NewsFeedYear: React.FC<Props> = ({ year, items }) => (
   <div className="NewsFeedYear sm:flex self-stretch">
-    <div className="NewsFeedYear__Year bg-flprimary text-white text-center p-2 antialiased text-xl sans-widest">
-      {year}
+    <div className="NewsFeedYear__Year bg-flprimary text-white text-center p-2 antialiased text-xl sans-widest flex items-center justify-center">
+      <div>{year}</div>
     </div>
     <div className="flex-grow">
       {items.map((item, idx) => (

@@ -7,10 +7,11 @@
     @apply mt-2;
   }
 
-  @supports (writing-mode: vertical-lr) {
-    .NewsFeedYear__Year {
-      writing-mode: vertical-lr;
-      transform: rotate(180deg);
-    }
+  .NewsFeedYear__Year {
+    width: 46px;
+  }
+
+  .NewsFeedYear__Year > div {
+    transform: rotate(-90deg);
   }
 }
