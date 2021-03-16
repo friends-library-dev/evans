@@ -54,7 +54,7 @@ const ListenBlock: React.FC<Props> = (props) => {
       )}
     >
       <DownloadAudiobook
-        className="mb-8 sm:mb-16 lg:border lg:border-l-0 lg:-mt-12 lg:pt-12 lg:px-12 border-flgray-200"
+        className="mb-8 sm:mb-16 lg:border lg:border-l-0 lg:-mt-12 lg:pt-12 lg:px-12 border-flgray-200 xl:mr-6"
         {...props}
         quality={quality}
         setQuality={setQuality}
