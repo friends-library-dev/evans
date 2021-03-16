@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import cx from 'classnames';
-import SearchInput from '../SearchInput';
+import FocusLock from 'react-focus-lock';
+import { InstantSearch } from 'react-instantsearch-dom';
+import { getClient } from '../lib/algolia';
+import Search from '../algolia/TopNavSearchInput';
+import DropdownSearchResults from './DropdownSearchResults';
+import { LANG } from '../env';
 import './TopNavSearch.css';
+
+const searchClient = getClient();
 
 interface Props {
   searching: boolean;
@@ -9,43 +16,37 @@ interface Props {
   className?: string;
 }
 
-const LazySearch = React.lazy(() => import(`./SearchLazy`));
-
 const TopNavSearch: React.FC<Props> = ({ className, searching, setSearching }) => {
-  if (!searching) {
-    return <PlaceholderSearch searching={searching} onClick={() => setSearching(true)} />;
-  }
+  useEffect(() => {
+    searching && focusInput();
+  }, [searching]);
+
   return (
-    <React.Suspense fallback={<PlaceholderSearch searching={searching} />}>
-      <LazySearch
-        searching={searching}
-        className={className}
-        setSearching={setSearching}
-      />
-    </React.Suspense>
+    <FocusLock
+      disabled={!searching}
+      returnFocus
+      autoFocus={false}
+      className={cx(
+        className,
+        `TopNavSearch flex-col justify-center items-end relative`,
+        searching && `searching flex-grow pl-4 sm:pl-8 md:pl-16`,
+        !searching && `flex-grow-0`,
+      )}
+      lockProps={{ onClick: () => !searching && setSearching(true) }}
+    >
+      <InstantSearch indexName={`${LANG}_docs`} searchClient={searchClient}>
+        <Search searching={searching} defaultRefinement="" />
+        {searching && <DropdownSearchResults />}
+      </InstantSearch>
+    </FocusLock>
   );
 };
 
 export default TopNavSearch;
 
-const PlaceholderSearch: React.FC<{ onClick?: () => any; searching: boolean }> = ({
-  onClick,
-  searching,
-}) => (
-  <div
-    className={cx(
-      `TopNavSearch w-10 flex flex-col justify-center items-end`,
-      searching ? `flex-grow` : `flex-grow-0`,
-    )}
-    onClick={onClick}
-  >
-    <SearchInput
-      small
-      lineColor="flprimary"
-      textColor="flgray-600"
-      open={false}
-      query=""
-      setQuery={() => {}}
-    />
-  </div>
-);
+function focusInput(): void {
+  const input: HTMLInputElement | null = document.querySelector(
+    `.TopNavSearch .SearchInput__input`,
+  );
+  input && input.focus();
+}
