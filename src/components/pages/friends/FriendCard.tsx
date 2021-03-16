@@ -99,6 +99,7 @@ const FriendCard: React.FC<Props> = ({
           </Item>
         </Stack>
       </div>
+      {/* purgeCSS: hover:bg-flblue-800 hover:bg-flgreen-800 hover:bg-flmaroon-800 */}
       <Button
         key="button"
         to={url}
