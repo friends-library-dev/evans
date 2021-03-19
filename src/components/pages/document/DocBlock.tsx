@@ -90,8 +90,8 @@ const DocBlock: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.match(/\b(android|kindle|silk)\b/)) {
+    const userAgent = window.navigator.userAgent;
+    if (userAgent.match(/\b(android|kindle|silk)\b/i)) {
       setRecoEbookType(`mobi`);
     }
   }, []);
