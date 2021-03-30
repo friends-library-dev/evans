@@ -1,7 +1,7 @@
 import { DocumentMeta } from '@friends-library/document-meta';
 import { Friend, Edition, Document } from '@friends-library/friends';
 import { Lang, NewsFeedType } from '@friends-library/types';
-import { htmlShortTitle } from '@friends-library/adoc-convert';
+import { htmlShortTitle } from '@friends-library/adoc-utils';
 import { t } from '@friends-library/locale';
 import { spanishShortMonth } from '../lib/date';
 import { documentUrl } from '../lib/url';

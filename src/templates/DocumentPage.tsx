@@ -1,13 +1,7 @@
 import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import { t } from '@friends-library/locale';
-import {
-  EditionType,
-  CoverProps,
-  PrintSize,
-  Heading,
-  Lang,
-} from '@friends-library/types';
+import { EditionType, CoverProps, PrintSize, Lang } from '@friends-library/types';
 import { Layout, Seo } from '../components/data';
 import ExploreBooksBlock from '../components/data/ExploreBooksBlock';
 import { SiteMetadata } from '../types';
@@ -47,7 +41,6 @@ interface Props {
           mobi: string;
           epub: string;
         };
-        chapterHeadings: Heading[];
         code: {
           css: { cover: null | string };
           html: { cover: null | string };
@@ -217,15 +210,6 @@ export const query = graphql`
           epub
         }
         ...CoverCode
-        chapterHeadings {
-          id
-          text
-          shortText
-          sequence {
-            type
-            number
-          }
-        }
         numChapters
         audio {
           reader

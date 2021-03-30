@@ -5,6 +5,7 @@ const { numPublishedBooks } = require(`@friends-library/friends/query`);
 const LANG = process.env.GATSBY_LANG === `es` ? `es` : `en`;
 
 module.exports = {
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     siteUrl:
       LANG === `en`

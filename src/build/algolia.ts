@@ -3,7 +3,7 @@ import { sync as glob } from 'glob';
 import { safeLoad as ymlToJs } from 'js-yaml';
 import algoliasearch from 'algoliasearch';
 import { t, translate } from '@friends-library/locale';
-import { htmlShortTitle } from '@friends-library/adoc-convert';
+import { htmlShortTitle } from '@friends-library/adoc-utils';
 import { Friend, Document } from '@friends-library/friends';
 import {
   numPublishedBooks,

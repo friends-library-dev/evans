@@ -7,7 +7,7 @@ import { price } from '@friends-library/lulu';
 import { fetch } from '@friends-library/document-meta';
 import { query, hydrate } from '@friends-library/dpc-fs';
 import { red } from 'x-chalk';
-import { htmlShortTitle, htmlTitle } from '@friends-library/adoc-convert';
+import { htmlShortTitle, htmlTitle } from '@friends-library/adoc-utils';
 import { allDocsMap, justHeadings, audioDurationStr } from './helpers';
 import { getDpcCache, persistDpcCache, EditionCache } from './dpc-cache';
 import residences from './residences';
@@ -97,17 +97,15 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         }
 
         let dpcData: EditionCache = dpcCache.get(edition.path) || {
-          headings: [],
+          initialized: false,
           customCode: { css: {}, html: {} },
         };
-        if (dpcData.headings.length === 0) {
+        if (!dpcData.initialized) {
           const [dpc] = query.getByPattern(edition.path);
           if (dpc) {
-            hydrate.asciidoc(dpc, undefined, justHeadings);
-            hydrate.process(dpc);
             hydrate.customCode(dpc);
             dpcData = {
-              headings: dpc.sections.map((sect) => sect.heading),
+              initialized: true,
               customCode: dpc.customCode,
             };
             dpcCache.set(edition.path, dpcData);
@@ -136,7 +134,6 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
             epub: url.artifactDownloadUrl(edition, `epub`),
             mobi: url.artifactDownloadUrl(edition, `mobi`),
           },
-          chapterHeadings: dpcData.headings,
           price: price(printSize, pages),
           customCode: dpcData.customCode,
           numChapters: editionMeta.numSections,

@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { Heading, DocPrecursor } from '@friends-library/types';
+import { DocPrecursor } from '@friends-library/types';
 import { NODE_ENV } from '../env';
 
 export interface EditionCache {
-  headings: Heading[];
+  initialized: boolean;
   customCode: DocPrecursor['customCode'];
 }
 
