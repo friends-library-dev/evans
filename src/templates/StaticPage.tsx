@@ -76,9 +76,7 @@ const components: { [key: string]: React.FC } = {
     </ul>
   ),
 
-  Lead: ({ children }) => (
-    <p className={cx(`text-xl sm:text-2xl pb-4 pt-2 leading-loose`)}>{children}</p>
-  ),
+  Lead: ({ children }) => <div className="Lead">{children}</div>,
 };
 
 const StaticPage: React.FC<Props> = ({ data }) => {

@@ -127,4 +127,16 @@ html:lang(en) .en\:hidden {
   padding: 0;
 }
 
+.MDX .Lead,
+.MDX .Lead > p {
+  @apply text-xl pb-4 pt-2 leading-loose !important;
+}
+
+@screen sm {
+  .MDX .Lead,
+  .MDX .Lead > p {
+    @apply text-2xl !important;
+  }
+}
+
 @tailwind utilities;
