@@ -86,6 +86,11 @@ export function getNewsFeedItems(
       // that the chronology is mixed up and not really helpful
       return date.substring(0, 10) > `2020-04-28`;
     })
+    .filter(({ title }) => {
+      // we batched together the release of the rest of GF's compolete works
+      // into a custom out-of-band event, so as not to flood the feed
+      return !title.match(/^(Doctrinal Works|The Great Mystery of the Great Whore)/);
+    })
     .sort((a, b) => {
       if (a.date === b.date) return 0;
       return a.date < b.date ? 1 : -1;
@@ -132,6 +137,14 @@ function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
   return [
+    {
+      lang: [`en`],
+      type: `book`,
+      title: `Complete Works of George Fox`,
+      description: `The remaining volumes of his complete works (including doctrinal and controversial works), now available.`,
+      ...dateFields(`2021-03-31T17:14:20.624Z`, formatter, `en`),
+      url: `/friend/george-fox`,
+    },
     {
       lang: [`es`],
       type: `chapter`,
