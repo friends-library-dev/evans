@@ -24,14 +24,14 @@ const ChoiceItem: React.FC<Props> = ({
       `hover:bg-flblue-800 py-4 pl-12 flex cursor-pointer`,
     )}
   >
-    <div className="w-12 mr-4 p-1">
+    <div className="mr-4 p-1" style={{ minWidth: `3rem` }}>
       <Icon />
     </div>
     <div className="pr-6">
       <h6 className="uppercase text-lg font-bold tracking-widest">{label}</h6>
       <p className="text-sm tracking-wide">{description}</p>
       {recommended && (
-        <div className="rounded-full bg-black text-center text-xs py-1 bg-flblue mt-2 uppercase w-40">
+        <div className="rounded-full text-center text-xs py-1 bg-flblue mt-2 uppercase w-40">
           {t`Recommended`}
         </div>
       )}

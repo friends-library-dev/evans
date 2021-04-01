@@ -138,6 +138,22 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`es`],
+      type: `feature`,
+      title: `Ya Puedes Descargar los Libros como Texto Sin Formato`,
+      description: `Ahora todos los libros están disponibles para descargarlos como un texto sin formato, ideal para la aplicaciones que convierten el texto a voz como “Voice Dream.”`,
+      ...dateFields(`2021-04-05T16:32:48.168Z`, formatter, `es`),
+      url: t`/plain-text-format`,
+    },
+    {
+      lang: [`en`],
+      type: `feature`,
+      title: `New Plain Text Download Format`,
+      description: `All books now available in a plain-text download format, ideal for text-to-speech apps like “Voice Dream.”`,
+      ...dateFields(`2021-04-05T16:32:48.168Z`, formatter, `en`),
+      url: t`/plain-text-format`,
+    },
+    {
       lang: [`en`],
       type: `book`,
       title: `Complete Works of George Fox`,
@@ -206,7 +222,7 @@ function getOutOfBandEvents(
       type: `feature`,
       title: `Friends Library App Released`,
       description: `Friends Library App for iOS and Android now available!`,
-      ...dateFields(`2020-11-12T16:27:48.609Z`, formatter, `es`),
+      ...dateFields(`2020-11-12T16:27:48.609Z`, formatter, `en`),
       url: `/app`,
     },
     {

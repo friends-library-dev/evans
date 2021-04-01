@@ -51,7 +51,7 @@ export function mp3PartDownloadUrl(
 
 export function artifactDownloadUrl(
   edition: Edition,
-  type: 'epub' | 'mobi' | 'web-pdf',
+  type: 'epub' | 'mobi' | 'web-pdf' | 'speech',
 ): string {
   return logUrl(edition, type, edition.filename(type));
 }

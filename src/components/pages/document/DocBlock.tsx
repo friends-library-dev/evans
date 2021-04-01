@@ -37,6 +37,7 @@ type Props = Omit<CoverProps, 'pages'> & {
       web_pdf: string;
       mobi: string;
       epub: string;
+      speech: string;
     };
   }[];
 };

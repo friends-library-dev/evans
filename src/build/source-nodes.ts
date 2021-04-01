@@ -133,6 +133,7 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
             web_pdf: url.artifactDownloadUrl(edition, `web-pdf`),
             epub: url.artifactDownloadUrl(edition, `epub`),
             mobi: url.artifactDownloadUrl(edition, `mobi`),
+            speech: url.artifactDownloadUrl(edition, `speech`),
           },
           price: price(printSize, pages),
           customCode: dpcData.customCode,

@@ -40,6 +40,7 @@ interface Props {
           web_pdf: string;
           mobi: string;
           epub: string;
+          speech: string;
         };
         code: {
           css: { cover: null | string };
@@ -208,6 +209,7 @@ export const query = graphql`
           web_pdf
           mobi
           epub
+          speech
         }
         ...CoverCode
         numChapters
