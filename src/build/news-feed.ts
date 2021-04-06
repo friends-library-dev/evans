@@ -139,6 +139,14 @@ function getOutOfBandEvents(
   return [
     {
       lang: [`es`],
+      type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulo 9)`,
+      description: `El noveno capítulo de la <em>Historia de los Cuáqueros</em> ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2021-04-06T14:54:20.039Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
+      lang: [`es`],
       type: `feature`,
       title: `Ya Puedes Descargar los Libros como Texto Sin Formato`,
       description: `Ahora todos los libros están disponibles para descargarlos como un texto sin formato, ideal para la aplicaciones que convierten el texto a voz como “Voice Dream.”`,
