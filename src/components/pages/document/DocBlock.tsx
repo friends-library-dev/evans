@@ -159,7 +159,7 @@ const DocBlock: React.FC<Props> = (props) => {
                 setDownloading(false);
                 setWizardOffset({ top: -9999, left: -9999 });
               }, 4000);
-              window.location.href = edition.downloadUrl[fileType];
+              window.location.href = ipPreservingUrl(edition.downloadUrl[fileType]);
             }
           }}
           editions={props.editions.map((e) => e.type)}
@@ -329,6 +329,20 @@ function titleHtml({ htmlTitle, isComplete }: Props): Html {
     html += `<sup class="text-flprimary-800">*</sup>`;
   }
   return html;
+}
+
+/**
+ * For some reason, Netlify seems to be redirecting requests like
+ * https://www.friendslibrary.com/.netlify/functions/hello-world TO
+ * https://friendslibrary.com/.netlify/functions/hello-world, and in
+ * the redirect, the header `client-ip` is lost, being set to an internal
+ * private IP like `100.64.X.X`, thus killing our IP geolocation.
+ * This forces the download links to go to the non-www versions,
+ * thus preserving the correct IP address of the requester.
+ */
+function ipPreservingUrl(path: string): string {
+  const origin = window.location.origin.replace(/\/\/www\./, `//`);
+  return `${origin}/${path}`;
 }
 
 const POPUNDER_TRIANGLE_HEIGHT = 16;
