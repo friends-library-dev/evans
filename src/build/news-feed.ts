@@ -162,14 +162,6 @@ function getOutOfBandEvents(
       url: t`/plain-text-format`,
     },
     {
-      lang: [`en`],
-      type: `book`,
-      title: `Complete Works of George Fox`,
-      description: `The remaining volumes of his complete works (including doctrinal and controversial works), now available.`,
-      ...dateFields(`2021-03-31T17:14:20.624Z`, formatter, `en`),
-      url: `/friend/george-fox`,
-    },
-    {
       lang: [`es`],
       type: `chapter`,
       title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 3)`,
