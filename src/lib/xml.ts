@@ -1,7 +1,7 @@
 import { encode } from 'he';
 import moment from 'moment';
 import { Audio, Document, Edition, AudioPart } from '@friends-library/friends';
-import { AudioQuality } from '@friends-library/types';
+import { AudioQuality, LARGEST_SQUARE_COVER_IMAGE_SIZE } from '@friends-library/types';
 import env from '@friends-library/env';
 import * as docMeta from '@friends-library/document-meta';
 import { LANG, APP_URL } from '../env';
@@ -27,8 +27,11 @@ export async function podcast(
     throw new Error(`Edition meta missing audio info: ${edition.path}`);
   }
 
-  const { CLOUD_STORAGE_BUCKET_URL: CLOUD_URL } = env.require(`CLOUD_STORAGE_BUCKET_URL`);
+  const CLOUD_URL = env.requireVar(`CLOUD_STORAGE_BUCKET_URL`);
   const launchDate = moment(`2020-03-27`);
+  const imageUrl = `${CLOUD_URL}/${edition.squareCoverImagePath(
+    LARGEST_SQUARE_COVER_IMAGE_SIZE,
+  )}`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss
@@ -56,9 +59,9 @@ export async function podcast(
       <itunes:name>Jared Henderson</itunes:name>
       <itunes:email>jared.thomas.henderson@gmail.com</itunes:email>
     </itunes:owner>
-    <itunes:image href="${CLOUD_URL}/${audio.imagePath}" />
+    <itunes:image href="${imageUrl}" />
     <image>
-      <url>${CLOUD_URL}/${audio.imagePath}</url>
+      <url>${imageUrl}</url>
       <title>${encode(document.title)}</title>
       <link>${APP_URL}${podcastUrl(audio, quality)}</link>
     </image>
