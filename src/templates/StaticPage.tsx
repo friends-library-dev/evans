@@ -114,7 +114,7 @@ const StaticPage: React.FC<Props> = ({ data }) => {
 export default StaticPage;
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     site {
       ...SiteMetadata
     }

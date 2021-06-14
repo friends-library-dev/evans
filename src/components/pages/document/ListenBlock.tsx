@@ -29,14 +29,8 @@ interface Props {
 
 const ListenBlock: React.FC<Props> = (props) => {
   const [quality, setQuality] = useState<AudioQuality>(`HQ`);
-  const {
-    trackIdLq,
-    trackIdHq,
-    numAudioParts,
-    playlistIdLq,
-    playlistIdHq,
-    title,
-  } = props;
+  const { trackIdLq, trackIdHq, numAudioParts, playlistIdLq, playlistIdHq, title } =
+    props;
 
   useEffect(() => {
     // @ts-ignore

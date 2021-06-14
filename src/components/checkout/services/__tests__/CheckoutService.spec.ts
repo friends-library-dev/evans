@@ -10,10 +10,10 @@ describe(`CheckoutService()`, () => {
   const createOrder = jest.fn();
 
   beforeEach(() => {
-    service = new CheckoutService(cartPlusData(), ({
+    service = new CheckoutService(cartPlusData(), {
       calculateFees,
       createOrder,
-    } as unknown) as CheckoutApi);
+    } as unknown as CheckoutApi);
     service.orderId = `order-id`;
   });
 

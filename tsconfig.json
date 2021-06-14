@@ -3,6 +3,8 @@
     "jsx": "react",
     "esModuleInterop": true,
     "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": false,
     "skipLibCheck": true,
     "noEmit": true,
     "module": "CommonJS",

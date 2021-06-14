@@ -364,9 +364,7 @@ const GettingStartedPaths: React.FC<Props> = ({
 
 export default GettingStartedPaths;
 
-function prepareBooks(
-  data: any[],
-): (CoverProps & {
+function prepareBooks(data: any[]): (CoverProps & {
   documentUrl: string;
   authorUrl: string;
   htmlShortTitle: string;
