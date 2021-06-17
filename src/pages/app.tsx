@@ -55,7 +55,7 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </p>
         <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
           <>
-            The Friends Library app is available for free for both <b>Android</b> and{' '}
+            The Friends Library app is available for free for both <b>Android</b> and{` `}
             <b>iOS</b> on the Apple App Store and Google Play Store. Use one of the links
             below to download the right app for your phone or device.
           </>
@@ -104,7 +104,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </Dual.P>
         <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
           <>
-            <span className="pr-1">...</span>or <span className="underline">read</span>{' '}
+            <span className="pr-1">...</span>or <span className="underline">read</span>
+            {` `}
             any of our books, right in the app.
           </>
           <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
@@ -114,10 +115,10 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Every single one of our {data.allBooks.totalCount} books can be conveniently
             read in electronic form, right from within the Friends Library app. The built
             in e-reader allows customization of the color scheme and font size, and will
-            keep your position in as many books as you're reading, allowing you to easily
-            pick up where you left off. Plus, every new book we add, and every error we
-            fix in any of our published texts will automatically be downloaded and synced
-            in your app, so you'll always be up to date.
+            keep your position in as many books as you&lsquo;re reading, allowing you to
+            easily pick up where you left off. Plus, every new book we add, and every
+            error we fix in any of our published texts will automatically be downloaded
+            and synced in your app, so you&lsquo;ll always be up to date.
           </>
           <>TODO TRANSLATION</>
         </Dual.P>
