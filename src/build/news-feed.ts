@@ -138,6 +138,14 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`en`],
+      type: `feature`,
+      title: `Friends Library App version 2.0 Released`,
+      description: `The new version allows you to <em>read</em> any of our published books, right within the app.`,
+      ...dateFields(`2021-06-17T20:57:58.453Z`, formatter, `en`),
+      url: `/app`,
+    },
+    {
       lang: [`es`],
       type: `chapter`,
       title: `Historia de los Cuáqueros &mdash; (Capítulo 9)`,
