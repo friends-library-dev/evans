@@ -18,6 +18,7 @@ interface Screenshot {
 interface Props {
   data: {
     audioBooks: { totalCount: number };
+    allBooks: { totalCount: number };
     splashEn: Screenshot;
     splashEs: Screenshot;
     audioEn: Screenshot;
@@ -41,14 +42,22 @@ const AppPage: React.FC<Props> = ({ data }) => {
       </BooksBgBlock>
       <div className="p-10 flex flex-col items-center md:py-16">
         <Dual.H2 className="text-flgray-900 text-3xl tracking-widest mb-6">
-          <>Now available for iOS and Android</>
+          <>Available for iOS and Android</>
           <>Ya se encuentra disponible en iOS y Android</>
         </Dual.H2>
+        <p className="body-text text-xl pb-8 max-w-screen-md leading-loose">
+          <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
+            Update
+          </span>
+          <b>June 21, 2021</b> &mdash; The Friends Library App <b>Version 2</b> has been
+          released. New in this release is the ability to <b>read</b> all of our published
+          books <em>directly from within the app.</em>
+        </p>
         <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
           <>
-            <b>November 12, 2020</b> &mdash; Friends Library now has iPhone and Android
-            apps available for free on the Apple App Store and Google Play Store. Use one
-            of the links below to download the right app for your phone or device.
+            The Friends Library app is available for free for both <b>Android</b> and{' '}
+            <b>iOS</b> on the Apple App Store and Google Play Store. Use one of the links
+            below to download the right app for your phone or device.
           </>
           <>
             <b>Noviembre 12, 2020</b> &mdash; La Biblioteca de los Amigos ahora tiene una
@@ -63,8 +72,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </div>
         <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
           <>
-            Easier <span className="underline">audiobooks</span> now, with more to come
-            soon!
+            Easy to use <span className="underline inline-block pr-1">audiobooks</span>
+            ...
           </>
           <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
         </Dual.H3>
@@ -73,11 +82,11 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Friends Library currently has {data.audioBooks.totalCount} titles recorded as
             audiobooks, with more being added regularly. Unfortunately, downloading and
             listening to our audiobooks directly from this website is quite difficult,
-            even for knowledgeable users. The first version of our iPhone and Android apps
-            are focused on making it super easy to download and listen to any of our
-            audiobooks, wherever you are. Just select an audiobook from the list and press
-            play. You can download whole books while you&rsquo;re connected to Wifi, and
-            listen to them conveniently later when you may or may not have internet.
+            even for knowledgeable users. The Friends Library App makes it super easy to
+            download and listen to any of our audiobooks, wherever you are. Just select an
+            audiobook from the list and press play. You can download whole books while
+            you&rsquo;re connected to Wifi, and listen to them conveniently later when you
+            may or may not have internet.
           </>
           <>
             Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}
@@ -93,6 +102,25 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Wifi, y escucharlos luego a tu conveniencia, sin conexión de internet.
           </>
         </Dual.P>
+        <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
+          <>
+            <span className="pr-1">...</span>or <span className="underline">read</span>{' '}
+            any of our books, right in the app.
+          </>
+          <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
+        </Dual.H3>
+        <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
+          <>
+            Every single one of our {data.allBooks.totalCount} books can be conveniently
+            read in electronic form, right from within the Friends Library app. The built
+            in e-reader allows customization of the color scheme and font size, and will
+            keep your position in as many books as you're reading, allowing you to easily
+            pick up where you left off. Plus, every new book we add, and every error we
+            fix in any of our published texts will automatically be downloaded and synced
+            in your app, so you'll always be up to date.
+          </>
+          <>TODO TRANSLATION</>
+        </Dual.P>
         <Dual.Div className="flex space-x-4 mb-10">
           <>
             <Image className="w-48" fluid={data.splashEn.image.fluid} alt="" />
@@ -107,13 +135,13 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </Dual.Div>
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
-            In the future, we plan to add a number of useful features to the app, all with
-            the goal of making it easier for everyone to find, listen, read and benefit
-            from these invaluable writings. It is our hope that many would be encouraged
-            to faithfully and fervently follow in the footsteps of these exemplary men and
-            women who ran well and fought the good fight, leaving us many precious
-            testimonies of lives fully surrendered to the grace, light and spirit of our
-            Lord Jesus Christ.
+            In the future, we plan to continue to add a number of useful features to the
+            app, all with the goal of making it easier for everyone to find, listen, read
+            and benefit from these invaluable writings. It is our hope that many would be
+            encouraged to faithfully and fervently follow in the footsteps of these
+            exemplary men and women who ran well and fought the good fight, leaving us
+            many precious testimonies of lives fully surrendered to the grace, light and
+            spirit of our Lord Jesus Christ.
           </>
           <>
             En el futuro, planeamos añadirle a la aplicación unas cuántas funciones muy
@@ -169,6 +197,9 @@ export default AppPage;
 
 export const query = graphql`
   query AppPage {
+    allBooks: allDocument {
+      totalCount
+    }
     audioBooks: allDocument(filter: { hasAudio: { eq: true } }) {
       totalCount
     }
