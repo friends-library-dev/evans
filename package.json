@@ -32,10 +32,10 @@
     "format": "fldev format"
   },
   "dependencies": {
-    "@friends-library/cover-component": "^3.1.4",
+    "@friends-library/cover-component": "^3.1.5",
     "@friends-library/locale": "^1.7.1",
     "@friends-library/lulu": "^1.3.1",
-    "@friends-library/types": "^5.0.3",
+    "@friends-library/types": "^5.1.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@reach/accordion": "^0.11.2",
