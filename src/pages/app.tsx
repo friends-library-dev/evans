@@ -49,15 +49,15 @@ const AppPage: React.FC<Props> = ({ data }) => {
           <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
             Update
           </span>
-          <b>June 21, 2021</b> &mdash; The Friends Library App <b>Version 2</b> has been
+          <b>June 21, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
           released. New in this release is the ability to <b>read</b> all of our published
           books <em>directly from within the app.</em>
         </p>
         <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
           <>
-            The Friends Library app is available for free for both <b>Android</b> and{` `}
-            <b>iOS</b> on the Apple App Store and Google Play Store. Use one of the links
-            below to download the right app for your phone or device.
+            The Friends Library app is available for free on both <b>iOS</b> and{` `}
+            <b>Android</b> in the Apple App Store and Google Play Store. Use one of the
+            links below to download the right app for your phone or device.
           </>
           <>
             <b>Noviembre 12, 2020</b> &mdash; La Biblioteca de los Amigos ahora tiene una
@@ -81,12 +81,12 @@ const AppPage: React.FC<Props> = ({ data }) => {
           <>
             Friends Library currently has {data.audioBooks.totalCount} titles recorded as
             audiobooks, with more being added regularly. Unfortunately, downloading and
-            listening to our audiobooks directly from this website is quite difficult,
-            even for knowledgeable users. The Friends Library App makes it super easy to
-            download and listen to any of our audiobooks, wherever you are. Just select an
-            audiobook from the list and press play. You can download whole books while
-            you&rsquo;re connected to Wifi, and listen to them conveniently later when you
-            may or may not have internet.
+            listening to our audiobooks <em>directly from this website</em> is quite
+            difficult, even for knowledgeable users. The Friends Library App makes it
+            super easy to download and listen to any of our audiobooks, wherever you are.
+            Just select an audiobook from the list and press play. You can download entire
+            audiobooks while you&rsquo;re connected to Wifi and listen to them
+            conveniently later when you may or may not have internet.
           </>
           <>
             Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}
