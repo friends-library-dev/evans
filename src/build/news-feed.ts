@@ -142,7 +142,15 @@ function getOutOfBandEvents(
       type: `feature`,
       title: `Friends Library App version 2.0 Released`,
       description: `The new version allows you to <em>read</em> any of our published books, right within the app.`,
-      ...dateFields(`2021-06-17T20:57:58.453Z`, formatter, `en`),
+      ...dateFields(`2021-06-24T20:57:58.453Z`, formatter, `en`), // @TODO final date when ready in both app stores
+      url: `/app`,
+    },
+    {
+      lang: [`es`],
+      type: `feature`,
+      title: `¡Hemos lanzado la versión 2.0 de la Aplicación de la Biblioteca de los Amigos!`,
+      description: `En la nueva versión los libros que tenemos publicados se pueden <em>leer</em> directamente en la aplicación.`,
+      ...dateFields(`2021-06-24T20:57:58.453Z`, formatter, `es`), // @TODO final date when ready in both app stores
       url: `/app`,
     },
     {

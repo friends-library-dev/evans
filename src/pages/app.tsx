@@ -43,16 +43,28 @@ const AppPage: React.FC<Props> = ({ data }) => {
       <div className="p-10 flex flex-col items-center md:py-16">
         <Dual.H2 className="text-flgray-900 text-3xl tracking-widest mb-6">
           <>Available for iOS and Android</>
-          <>Ya se encuentra disponible en iOS y Android</>
+          <>Disponible en iOS y Android</>
         </Dual.H2>
-        <p className="body-text text-xl pb-8 max-w-screen-md leading-loose">
-          <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
-            Update
-          </span>
-          <b>June 21, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
-          released. New in this release is the ability to <b>read</b> all of our published
-          books <em>directly from within the app.</em>
-        </p>
+        <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
+          <>
+            <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
+              Update
+            </span>
+            {/* @TODO real date must go here! */}
+            <b>June 21, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
+            released. New in this release is the ability to <b>read</b> all of our
+            published books <em>from directly within the app.</em>
+          </>
+          <>
+            <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
+              Actualización
+            </span>
+            {/* @TODO real LOCALIZED date must go here! */}
+            <b>June 21, 2021</b> &mdash; Ya está disponible la <b>Versión 2.0</b> de la
+            Aplicación de la Biblioteca de los Amigos. Ahora todos los libros que tenemos
+            publicados se pueden <em>leer directamente en la aplicación.</em>
+          </>
+        </Dual.P>
         <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
           <>
             The Friends Library app is available for free on both <b>iOS</b> and{` `}
@@ -60,10 +72,10 @@ const AppPage: React.FC<Props> = ({ data }) => {
             links below to download the right app for your phone or device.
           </>
           <>
-            <b>Noviembre 12, 2020</b> &mdash; La Biblioteca de los Amigos ahora tiene una
-            aplicación gratuita disponible en la App Store y en Google Play Store. Haz
-            clic en uno de los enlaces a continuación para descargar la aplicación que
-            corresponda a tu teléfono o dispositivo.
+            La Biblioteca de los Amigos ahora tiene una aplicación gratuita disponible en
+            la <b>App Store</b> y en <b>Google Play Store.</b> Haz clic en uno de los
+            enlaces a continuación para descargar la aplicación que corresponda a tu
+            teléfono o dispositivo.
           </>
         </Dual.P>
         <div className="max-w-xs sm:max-w-lg px-6 flex flex-col sm:flex-row space-y-6  sm:space-y-0 sm:space-x-8 items-center mb-10">
@@ -75,7 +87,10 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Easy to use <span className="underline inline-block pr-1">audiobooks</span>
             ...
           </>
-          <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
+          <>
+            Es muy fácil escuchar{' '}
+            <span className="underline inline-block pr-1">audiolibros</span> ...
+          </>
         </Dual.H3>
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
@@ -89,15 +104,13 @@ const AppPage: React.FC<Props> = ({ data }) => {
             conveniently later when you may or may not have internet.
           </>
           <>
-            Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}
-            {` `}
+            Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}{' '}
             libros grabados en forma de Audiolibros, y ese número seguirá creciendo.
             Desafortunadamente, descargar y escuchar nuestros audiolibros directamente
             desde este sitio web puede ser difícil, incluso para usuarios con cierto
-            conocimiento. El objetivo principal de esta primera versión de nuestra
-            aplicación (disponible en Iphone y Android) es hacer que sea muy sencillo
-            descargar y escuchar cualquiera de nuestros audiolibros, sin importar donde
-            estés. Solo tienes que seleccionar un audiolibro de la lista y darle a
+            conocimiento. La Aplicación de la Biblioteca de Los Amigos hace que sea
+            demasiado fácil descargar y escuchar cualquiera de nuestros audiolibros, donde
+            sea que estés. Solo tienes que seleccionar un audiolibro de la lista y darle a
             reproducir. Puedes descargar libros enteros mientras estés conectado a un
             Wifi, y escucharlos luego a tu conveniencia, sin conexión de internet.
           </>
@@ -108,19 +121,33 @@ const AppPage: React.FC<Props> = ({ data }) => {
             {` `}
             any of our books, right in the app.
           </>
-          <>¡Ahora es más fácil escuchar los audios, y pronto habrá más disponibles!</>
+          <>
+            <span className="pr-1">...</span>o <span className="underline">leer</span>
+            {` `}
+            cualquiera de nuestros libros, directamente en la aplicación.
+          </>
         </Dual.H3>
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
             Every single one of our {data.allBooks.totalCount} books can be conveniently
-            read in electronic form, right from within the Friends Library app. The built
+            read in electronic form, from right within the Friends Library app. The built
             in e-reader allows customization of the color scheme and font size, and will
-            keep your position in as many books as you&lsquo;re reading, allowing you to
+            keep your position in as many books as you&rsquo;re reading, allowing you to
             easily pick up where you left off. Plus, every new book we add, and every
             error we fix in any of our published texts will automatically be downloaded
-            and synced in your app, so you&lsquo;ll always be up to date.
+            and synced in your app, so you&rsquo;ll always be up to date.
           </>
-          <>TODO TRANSLATION</>
+          <>
+            Cada uno de nuestros {data.allBooks.totalCount} libros se puede leer
+            cómodamente en formato electrónico dentro de la aplicación de la Biblioteca de
+            Los Amigos. El lector electrónico integrado permite la configuración de la
+            combinación de colores y del tamaño de la letra, y guardará el punto donde
+            quedaste en todos los libros que estés leyendo, haciendo que sea más fácil
+            para ti retomar la lectura desde donde la dejaste. Además, cada libro nuevo
+            que agreguemos, y cada error que corrijamos en alguno de nuestros textos
+            publicados, se descargará y sincronizará automáticamente en tu aplicación, así
+            que siempre estarás al día.
+          </>
         </Dual.P>
         <Dual.Div className="flex space-x-4 mb-10">
           <>
@@ -142,12 +169,12 @@ const AppPage: React.FC<Props> = ({ data }) => {
             encouraged to faithfully and fervently follow in the footsteps of these
             exemplary men and women who ran well and fought the good fight, leaving us
             many precious testimonies of lives fully surrendered to the grace, light and
-            spirit of our Lord Jesus Christ.
+            Spirit of our Lord Jesus Christ.
           </>
           <>
-            En el futuro, planeamos añadirle a la aplicación unas cuántas funciones muy
-            útiles, todas con el objetivo de hacer que sea más sencillo para todos
-            encontrar, escuchar, leer y beneficiarse de estos invaluables escritos.
+            En el futuro, planeamos seguir añadiéndole a la aplicación unas cuántas
+            funciones muy útiles, todas con el objetivo de hacer que sea más sencillo para
+            todos encontrar, escuchar, leer y beneficiarse de estos invaluables escritos.
             Tenemos la esperanza de que muchos se animen a seguir fiel y fervientemente
             las pisadas de estos ejemplares hombres y mujeres que corrieron bien y
             pelearon la buena batalla, dejándonos muchos testimonios preciosos de vidas
