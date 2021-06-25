@@ -25,6 +25,12 @@ interface Props {
     audioEs: Screenshot;
     audioListEn: Screenshot;
     audioListEs: Screenshot;
+    homeEn: Screenshot;
+    homeEs: Screenshot;
+    readEn: Screenshot;
+    readEs: Screenshot;
+    ebookEn: Screenshot;
+    ebookEs: Screenshot;
   };
 }
 
@@ -82,13 +88,13 @@ const AppPage: React.FC<Props> = ({ data }) => {
           <AppBadges.Ios />
           <AppBadges.Android />
         </div>
-        <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
+        <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6 mt-6">
           <>
             Easy to use <span className="underline inline-block pr-1">audiobooks</span>
             ...
           </>
           <>
-            Es muy fácil escuchar{' '}
+            Es muy fácil escuchar{` `}
             <span className="underline inline-block pr-1">audiolibros</span> ...
           </>
         </Dual.H3>
@@ -104,7 +110,8 @@ const AppPage: React.FC<Props> = ({ data }) => {
             conveniently later when you may or may not have internet.
           </>
           <>
-            Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}{' '}
+            Actualmente, La Biblioteca de los Amigos tiene {data.audioBooks.totalCount}
+            {` `}
             libros grabados en forma de Audiolibros, y ese número seguirá creciendo.
             Desafortunadamente, descargar y escuchar nuestros audiolibros directamente
             desde este sitio web puede ser difícil, incluso para usuarios con cierto
@@ -115,6 +122,18 @@ const AppPage: React.FC<Props> = ({ data }) => {
             Wifi, y escucharlos luego a tu conveniencia, sin conexión de internet.
           </>
         </Dual.P>
+        <Dual.Div className="flex space-x-4 mb-10">
+          <>
+            <Image className="w-48" fluid={data.splashEn.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.audioEn.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.audioListEn.image.fluid} alt="" />
+          </>
+          <>
+            <Image className="w-48" fluid={data.splashEs.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.audioEs.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.audioListEs.image.fluid} alt="" />
+          </>
+        </Dual.Div>
         <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
           <>
             <span className="pr-1">...</span>or <span className="underline">read</span>
@@ -151,16 +170,17 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </Dual.P>
         <Dual.Div className="flex space-x-4 mb-10">
           <>
-            <Image className="w-48" fluid={data.splashEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioListEn.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.homeEn.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.readEn.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.ebookEn.image.fluid} alt="" />
           </>
           <>
-            <Image className="w-48" fluid={data.splashEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioListEs.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.homeEs.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.readEs.image.fluid} alt="" />
+            <Image className="w-48" fluid={data.ebookEs.image.fluid} alt="" />
           </>
         </Dual.Div>
+
         <Dual.P className="body-text pb-12 max-w-screen-md leading-loose">
           <>
             In the future, we plan to continue to add a number of useful features to the
@@ -230,6 +250,48 @@ export const query = graphql`
     }
     audioBooks: allDocument(filter: { hasAudio: { eq: true } }) {
       totalCount
+    }
+    readEn: file(relativePath: { eq: "app-screens/app-read.en.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    readEs: file(relativePath: { eq: "app-screens/app-read.es.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    ebookEn: file(relativePath: { eq: "app-screens/app-ebook.en.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    ebookEs: file(relativePath: { eq: "app-screens/app-ebook.es.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    homeEn: file(relativePath: { eq: "app-screens/app-home.en.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    homeEs: file(relativePath: { eq: "app-screens/app-home.es.jpg" }) {
+      image: childImageSharp {
+        fluid(quality: 90, maxHeight: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
     }
     splashEn: file(relativePath: { eq: "app-screens/app-splash.en.jpg" }) {
       image: childImageSharp {
