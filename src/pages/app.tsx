@@ -56,8 +56,7 @@ const AppPage: React.FC<Props> = ({ data }) => {
             <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
               Update
             </span>
-            {/* @TODO real date must go here! */}
-            <b>June 21, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
+            <b>June 28, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
             released. New in this release is the ability to <b>read</b> all of our
             published books <em>from directly within the app.</em>
           </>
@@ -65,8 +64,7 @@ const AppPage: React.FC<Props> = ({ data }) => {
             <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
               Actualización
             </span>
-            {/* @TODO real LOCALIZED date must go here! */}
-            <b>June 21, 2021</b> &mdash; Ya está disponible la <b>Versión 2.0</b> de la
+            <b>Junio 28, 2021</b> &mdash; Ya está disponible la <b>Versión 2.0</b> de la
             Aplicación de la Biblioteca de los Amigos. Ahora todos los libros que tenemos
             publicados se pueden <em>leer directamente en la aplicación.</em>
           </>
