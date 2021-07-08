@@ -138,6 +138,14 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`es`],
+      type: `chapter`,
+      title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 4)`,
+      description: `El cuarto capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2021-07-08T23:41:33.208Z`, formatter, `es`),
+      url: `/james-nayler/escritos`,
+    },
+    {
       lang: [`en`],
       type: `feature`,
       title: `Friends Library App version 2.0 Released`,
