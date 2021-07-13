@@ -46,6 +46,8 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 58.0, left: 27.4, map: `Europe` };
     case `Needham Market, England`:
       return { top: 67.6, left: 64.3, map: `UK` };
+    case `Castle Donington, England`:
+      return { top: 59.8, left: 54.9, map: `UK` };
     case `Bucks County, Pennsylvania`:
       return { top: 48.0, left: 49.5, map: `US` };
     case `Newton, New Jersey`:
