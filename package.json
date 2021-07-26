@@ -1,6 +1,6 @@
 {
   "name": "@friends-library/evans",
-  "description": "Friends Library website (English and Spanish)",
+  "description": "Friends Library websites (English and Spanish)",
   "author": "Jared Henderson <jared@netrivet.com>",
   "repository": "github:friends-library-dev/evans",
   "private": true,
