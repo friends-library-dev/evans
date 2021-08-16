@@ -74,6 +74,8 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 50.2, left: 30.9, map: `US` };
     case `Philadelphia, Pennsylvania`:
       return { top: 52.0, left: 49.9, map: `US` };
+    case `Burlington, New Jersey`:
+      return { top: 52.6, left: 50.7, map: `US` };
     case `Ruscombe, England`:
       return { top: 73.8, left: 56.9, map: `UK` };
     case `Little Musgrave, England`:
