@@ -44,6 +44,8 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 19.0, left: 87.4, map: `Europe` };
     case `Sheffield, England`:
       return { top: 58.0, left: 27.4, map: `Europe` };
+    case `Ringwood, England`:
+      return { top: 81.2, left: 53.6, map: `UK` };
     case `Needham Market, England`:
       return { top: 67.6, left: 64.3, map: `UK` };
     case `Castle Donington, England`:
