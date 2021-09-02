@@ -48,7 +48,7 @@ export default class CheckoutApi {
         statusCode: 500,
         data: {
           msg: Err.ERROR_CONFIRMING_STRIPE_CARD_PAYMENT,
-          details: error.message,
+          details: String(error),
         },
       };
     }
