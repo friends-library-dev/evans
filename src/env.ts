@@ -1,7 +1,5 @@
 import { Lang, NodeEnv, Url } from '@friends-library/types';
 
-// @TODO -- there are TWO .env files (from combining old `ui` and `evans` pkgs)
-
 export const NODE_ENV: NodeEnv =
   process.env.NODE_ENV === `production` ? `production` : `development`;
 
