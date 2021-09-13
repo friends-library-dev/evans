@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { graphql } from 'gatsby';
 import { Name, Description, FluidBgImageObject } from '@friends-library/types';
-import { t, translate } from '@friends-library/locale';
+import { t, translateOptional as trans } from '@friends-library/locale';
 import { coverPropsFromQueryData, CoverData } from '../lib/covers';
 import { Layout, Seo } from '../components/data';
 import { LANG } from '../env';
@@ -113,7 +113,7 @@ const FriendPage: React.FC<Props> = ({ data: { friend, relatedDocuments, booksBg
           bgImg={booksBg.image.fluid}
           friendName={friend.name}
           residences={friend.residences.flatMap((r) => {
-            const place = `${translate(r.city)}, ${translate(r.region)}`;
+            const place = `${trans(r.city)}, ${trans(r.region)}`;
             if (r.durations) {
               return r.durations.map((d) => `${place} (${d.start} - ${d.end})`);
             }
@@ -127,7 +127,7 @@ const FriendPage: React.FC<Props> = ({ data: { friend, relatedDocuments, booksBg
           })}
           map={friend.residences[0].map}
           markers={friend.residences.map((r) => ({
-            label: `${translate(r.city)}, ${translate(r.region)}`,
+            label: `${trans(r.city)}, ${trans(r.region)}`,
             top: r.top,
             left: r.left,
           }))}
