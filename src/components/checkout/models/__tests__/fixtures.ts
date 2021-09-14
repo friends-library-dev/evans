@@ -1,5 +1,5 @@
 import CartItem, { CartItemData } from '../CartItem';
-import { Address } from '../../types';
+import { Address } from '../../../../types';
 import Cart from '../Cart';
 
 export const cartItemData1: () => CartItemData = () => ({
