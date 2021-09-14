@@ -53,8 +53,8 @@ const ShippingAddress: React.FC<Props> = ({
   return (
     <>
       <Input
+        wrapClassName="md:order-1"
         autofocus={autoFocusFirst}
-        className="order-1"
         onChange={(val) => setName(val)}
         onBlur={() => setNameBlurred(true)}
         onFocus={() => setNameBlurred(false)}
@@ -66,7 +66,18 @@ const ShippingAddress: React.FC<Props> = ({
         name="name"
       />
       <Input
-        className="order-3"
+        wrapClassName="md:order-3"
+        invalidMsg={email ? t`Valid email is required` : t`Email is required`}
+        valid={!emailBlurred || !!email.match(/^\S+@\S+$/)}
+        onChange={(val) => setEmail(val)}
+        onFocus={() => setEmailBlurred(false)}
+        onBlur={() => setEmailBlurred(true)}
+        value={email}
+        placeholder={t`Email`}
+        type="email"
+      />
+      <Input
+        wrapClassName="md:order-5"
         onChange={(val) => setStreet(val)}
         onFocus={() => setStreetBlurred(false)}
         onBlur={() => setStreetBlurred(true)}
@@ -82,7 +93,7 @@ const ShippingAddress: React.FC<Props> = ({
         name="address"
       />
       <Input
-        className="order-4"
+        wrapClassName="md:order-7"
         onChange={(val) => setStreet2(val)}
         value={street2}
         placeholder={t`Apartment, suite, unit, etc.`}
@@ -91,7 +102,7 @@ const ShippingAddress: React.FC<Props> = ({
         autoComplete="address-line2"
       />
       <Input
-        className="order-5"
+        wrapClassName="md:order-2"
         invalidMsg={t`City is required`}
         valid={!cityBlurred || !!city}
         onChange={(val) => setCity(val)}
@@ -103,7 +114,7 @@ const ShippingAddress: React.FC<Props> = ({
         name="city"
       />
       <Input
-        className="order-6"
+        wrapClassName="md:order-4"
         invalidMsg={t`State / Province / Region is required`}
         valid={!stateBlurred || !!state}
         onChange={(val) => setState(val)}
@@ -115,7 +126,7 @@ const ShippingAddress: React.FC<Props> = ({
         name="region"
       />
       <Input
-        className="order-7"
+        wrapClassName="md:order-6"
         invalidMsg={t`ZIP / Postal Code is required`}
         valid={!zipBlurred || !!zip}
         onChange={(val) => setZip(val)}
@@ -129,7 +140,7 @@ const ShippingAddress: React.FC<Props> = ({
       <select
         value={country}
         className={cx(
-          `CartInput text-gray-500 order-8`,
+          `CartInput text-gray-500 md:order-last`,
           countryBlurred && !country && `invalid text-red-600`,
         )}
         onBlur={() => setCountryBlurred(true)}
@@ -146,17 +157,6 @@ const ShippingAddress: React.FC<Props> = ({
           </option>
         ))}
       </select>
-      <Input
-        className="order-2"
-        invalidMsg={email ? t`Valid email is required` : t`Email is required`}
-        valid={!emailBlurred || !!email.match(/^\S+@\S+$/)}
-        onChange={(val) => setEmail(val)}
-        onFocus={() => setEmailBlurred(false)}
-        onBlur={() => setEmailBlurred(true)}
-        value={email}
-        placeholder={t`Email`}
-        type="email"
-      />
     </>
   );
 };

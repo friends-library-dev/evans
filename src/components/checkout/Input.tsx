@@ -6,7 +6,8 @@ interface Props {
   valid: boolean;
   placeholder: string;
   invalidMsg: string;
-  className?: string;
+  wrapClassName?: string;
+  inputClassName?: string;
   value?: string;
   onChange: (newVal: string) => void;
   onBlur?: () => void;
@@ -26,17 +27,18 @@ const Input: React.FC<Props> = ({
   onChange,
   onBlur,
   onFocus,
-  className,
+  inputClassName,
   autoComplete,
   name,
+  wrapClassName,
   type = `text`,
 }) => (
-  <div className="relative">
+  <div className={cx(`relative`, wrapClassName)}>
     <input
       name={name}
       autoComplete={autoComplete}
       autoFocus={autofocus}
-      className={cx(className, `CartInput`, { invalid: !valid })}
+      className={cx(inputClassName, `CartInput`, { invalid: !valid })}
       type={type}
       placeholder={valid ? placeholder : invalidMsg}
       value={value || ``}
