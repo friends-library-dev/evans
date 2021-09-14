@@ -18,6 +18,7 @@ import './DocBlock.css';
 type Props = Omit<CoverProps, 'pages'> & {
   htmlTitle: string;
   htmlShortTitle: string;
+  utf8ShortTitle: string;
   authorUrl: string;
   documentId: string;
   author: string;
@@ -68,7 +69,7 @@ const DocBlock: React.FC<Props> = (props) => {
       }
       const text = (btn.textContent || ``).toLowerCase();
       if (
-        (downloading && text.match(/download|descargar/)) || // @TODO check spanish!
+        (downloading && text.match(/download|descargar/)) ||
         (addingToCart && text.includes(`.`))
       ) {
         visibleBtnRect = rect;
@@ -105,7 +106,7 @@ const DocBlock: React.FC<Props> = (props) => {
   }, [downloading, addingToCart]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const escape: (e: KeyboardEvent) => any = ({ keyCode }) => {
+    const escape: (e: KeyboardEvent) => void = ({ keyCode }) => {
       if (keyCode === 27 && (downloading || addingToCart)) {
         setDownloading(false);
         setAddingToCart(false);
@@ -255,6 +256,7 @@ function LinksAndMeta(
     className,
     onClickDownload,
     onClickAddToCart,
+    utf8ShortTitle,
   } = props;
   return (
     <div className={className}>
@@ -289,7 +291,10 @@ function LinksAndMeta(
           )}
         </ul>
       </div>
-      <SpanishFreeBooksNote className="body-text mt-8 md:mt-10 sm:px-8 md:px-16 mx-auto max-w-screen-md opacity-75" />
+      <SpanishFreeBooksNote
+        bookTitle={`${utf8ShortTitle} — ${author}`}
+        className="body-text mt-8 md:mt-10 sm:px-8 md:px-16 mx-auto max-w-screen-md opacity-75"
+      />
     </div>
   );
 }

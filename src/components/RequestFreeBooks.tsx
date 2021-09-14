@@ -45,7 +45,7 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
               </p>
               <textarea
                 autoFocus
-                placeholder={aboutValid ? `TODO: required` : ``}
+                placeholder={aboutValid ? `Esta información es obligatoria.` : ``}
                 className={cx(`CartInput mt-3`, aboutValid && `invalid`)}
                 rows={4}
                 onFocus={() => setAboutBlurred(false)}
@@ -62,7 +62,7 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
                 onBlur={() => setTitlesBlurred(true)}
                 value={titles}
                 onChange={(newValue) => setTitles(newValue)}
-                invalidMsg="TODO requiredo"
+                invalidMsg="Esta información es obligatoria."
               />
               <Heading>Datos:</Heading>
               <p className="antialiased font-serif text-flgray-900 mb-5 md:text-justify">
@@ -123,7 +123,7 @@ const RequestFreeBooksContainer: React.FC<{ currentPageBook: string }> = ({
   const [state, setState] = useState<Props['state']>(`default`);
   const [addressProps, address, addressValid] = useAddress({});
   const dispatch = useContext(AppDispatch);
-  const close: () => unknown = () => dispatch(`show--app`);
+  const close: () => unknown = () => dispatch({ type: `show--app` });
   switch (state) {
     case `default`:
       return (

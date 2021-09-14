@@ -19,7 +19,7 @@ export default Modal;
 export const CloseButton: React.FC<{ onClick: () => unknown }> = ({ onClick }) => {
   return (
     <button
-      className="absolute top-0 right-0 px-4 -mt-3 -mr-1 py-2 subtle-focus"
+      className="absolute top-0 right-0 px-4 -mt-3 -mr-0.5 py-2 subtle-focus"
       onClick={onClick}
     >
       <span className="sr-only">{t`Close`}</span>

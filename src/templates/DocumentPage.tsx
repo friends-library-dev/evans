@@ -28,6 +28,7 @@ interface Props {
       title: string;
       htmlTitle: string;
       htmlShortTitle: string;
+      utf8ShortTitle: string;
       description: string;
       altLanguageUrl: string | null;
       isCompilation: boolean;
@@ -124,6 +125,7 @@ const DocumentPage: React.FC<Props> = ({
         description={document.description}
         htmlTitle={document.htmlTitle}
         htmlShortTitle={document.htmlShortTitle}
+        utf8ShortTitle={document.utf8ShortTitle}
         authorUrl={friend.url}
         price={mainEdition.price}
         hasAudio={hasAudio}
@@ -198,6 +200,7 @@ export const query = graphql`
     document(slug: { eq: $documentSlug }, friendSlug: { eq: $friendSlug }) {
       htmlTitle
       htmlShortTitle
+      utf8ShortTitle
       editions {
         type
         isbn

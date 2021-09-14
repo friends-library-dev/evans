@@ -13,7 +13,6 @@ import ErrorMsg from './ErrorMsg';
 import { AddressWithEmail } from '../../types';
 import ShippingAddress from '../ShippingAddress';
 import { useAddress } from '../lib/hooks';
-import './Delivery.css';
 
 const Delivery: React.FC<{
   onSubmit: (address: AddressWithEmail) => void;

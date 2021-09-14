@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import cx from 'classnames';
 import { LANG } from './env';
+import { AppDispatch } from './lib/app-state';
 
-const SpanishFreeBooksNote: React.FC<{ className?: string }> = ({ className }) => {
+const SpanishFreeBooksNote: React.FC<{ className?: string; bookTitle?: string }> = ({
+  className,
+  bookTitle = ``,
+}) => {
+  const dispatch = useContext(AppDispatch);
   if (LANG === `en`) return null;
   return (
     <p className={cx(className, `text-center italic`)}>
-      Si debido a limitaciones financieras, no puedes comprar nuestros libros por el costo
-      de la impresión más el envío, puedes solicitarlos gratuitamente rellenando el
-      formulario al final de{` `}
-      <a
-        href="https://www.zoecostarica.com/libros/#request"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="subtle-link"
+      Si deseas un ejemplar impreso pero, por razones económicas o de otro tipo, no puedes
+      hacer un pedido en línea,{` `}
+      <button
+        onClick={() => dispatch({ type: `show--modal:request-free`, book: bookTitle })}
+        className="italic subtle-link hover:border-solid"
       >
-        esta página
-      </a>
-      .
+        haz clic aquí
+      </button>
+      {` `}
+      para solicitarlo gratuitamente.
     </p>
   );
 };

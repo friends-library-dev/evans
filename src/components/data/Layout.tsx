@@ -16,6 +16,7 @@ import { useNumCartItems } from '../checkout/hooks';
 import { useEscapeable } from '../lib/hooks';
 import PopUnder from '../PopUnder';
 import { appReducer, appInitialState, AppDispatch } from '../lib/app-state';
+import RequestFreeBooks from '../RequestFreeBooks';
 
 const store = CartStore.getSingleton();
 
@@ -45,7 +46,7 @@ const Layout: React.FC = ({ children }) => {
       setTimeout(() => setItemJustAdded(false), 4000);
     }
     function setCheckoutModalOpen(open: boolean): void {
-      dispatch(open ? `show--modal:checkout` : `show--app`);
+      dispatch(open ? { type: `show--modal:checkout` } : { type: `show--app` });
     }
     store.on(`toggle:visibility`, setCheckoutModalOpen);
     store.on(`cart:item-added`, onCartItemAdded);
@@ -112,6 +113,9 @@ const Layout: React.FC = ({ children }) => {
           </PopUnder>
         )}
         {appState.view === `modal:checkout` && <Checkout />}
+        {appState.view === `modal:request-free` && (
+          <RequestFreeBooks currentPageBook={appState.book} />
+        )}
         {appState.view === `app` && (
           <>
             <Slideover close={() => setMenuOpen(false)} />
