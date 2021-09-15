@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import cx from 'classnames';
+import gql from 'x-syntax';
 import ShippingAddress, { Props as ShippingAddressProps } from './ShippingAddress';
 import MessageThrobber from './checkout/MessageThrobber';
 import Input from './checkout/Input';
@@ -124,6 +125,12 @@ const RequestFreeBooksContainer: React.FC<{ currentPageBook: string }> = ({
   const [addressProps, address, addressValid] = useAddress({});
   const dispatch = useContext(AppDispatch);
   const close: () => unknown = () => dispatch({ type: `show--app` });
+
+  const ENDPOINT =
+    (process.env.GATSBY_NETLIFY_CONTEXT === `production`
+      ? process.env.GATSBY_PROD_GRAPHQL_API_ENDPOINT
+      : process.env.GATSBY_TEST_GRAPHQL_API_ENDPOINT) || ``;
+
   switch (state) {
     case `default`:
       return (
@@ -132,11 +139,44 @@ const RequestFreeBooksContainer: React.FC<{ currentPageBook: string }> = ({
           initialTitles={currentPageBook}
           addressProps={addressProps}
           addressIsValid={addressValid}
-          onSubmit={async () => {
+          onSubmit={async (aboutRequester, requestedBooks) => {
             setState(`submitting`);
-            // @TODO: make graphql request
-            console.log(address);
-            // set state to success or error based on response
+            const input = {
+              email: address.email,
+              requestedBooks,
+              aboutRequester,
+              name: address.name,
+              addressStreet: address.street,
+              addressStreet2: address.street2 ?? null,
+              addressCity: address.city,
+              addressState: address.state,
+              addressZip: address.zip,
+              addressCountry: address.country,
+              source: window.location.href,
+            };
+
+            try {
+              const res = await window.fetch(ENDPOINT, {
+                method: `POST`,
+                headers: { 'Content-Type': `application/json` },
+                body: JSON.stringify({
+                  query: CREATE_FREE_ORDER_MUTATION,
+                  variables: { input },
+                }),
+              });
+              if (res.status !== 200) {
+                setState(`submit_error`);
+                return;
+              }
+              const json = await res.json();
+              if (typeof json.data?.request?.id === `string`) {
+                setState(`submit_success`);
+              } else {
+                setState(`submit_error`);
+              }
+            } catch {
+              setState(`submit_error`);
+            }
           }}
           onClose={close}
         />
@@ -181,3 +221,11 @@ const Wrap: React.FC<{ onClose: () => unknown }> = ({ children, onClose }) => (
     {children}
   </div>
 );
+
+const CREATE_FREE_ORDER_MUTATION = gql`
+  mutation CreateFreeOrderRequest($input: CreateFreeOrderRequestInput!) {
+    request: createFreeOrderRequest(input: $input) {
+      id
+    }
+  }
+`;

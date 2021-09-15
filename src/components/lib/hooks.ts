@@ -79,7 +79,7 @@ export function useAddress(
       state &&
       zip &&
       country &&
-      email
+      email.includes(`@`)
     ),
   ];
 }
