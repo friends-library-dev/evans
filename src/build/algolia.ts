@@ -2,7 +2,7 @@ import fs from 'fs';
 import { sync as glob } from 'glob';
 import { safeLoad as ymlToJs } from 'js-yaml';
 import algoliasearch from 'algoliasearch';
-import { t, translate } from '@friends-library/locale';
+import { t, translateOptional } from '@friends-library/locale';
 import { htmlShortTitle } from '@friends-library/adoc-utils';
 import { Friend, Document } from '@friends-library/friends';
 import {
@@ -93,7 +93,7 @@ function friendRecord(friend: Friend): Record<string, string> {
         .join(`”, “`) +
       `”`,
     residences: friend.residences
-      .map((r) => `${translate(r.city)}, ${translate(r.region)}`)
+      .map((r) => `${translateOptional(r.city)}, ${translateOptional(r.region)}`)
       .join(` — `),
     description: friend.description,
   };
