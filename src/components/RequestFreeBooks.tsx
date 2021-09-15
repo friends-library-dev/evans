@@ -3,7 +3,6 @@ import cx from 'classnames';
 import gql from 'x-syntax';
 import ShippingAddress, { Props as ShippingAddressProps } from './ShippingAddress';
 import MessageThrobber from './checkout/MessageThrobber';
-import Input from './checkout/Input';
 import Button from './Button';
 import { CloseButton } from './checkout/Modal';
 import { useAddress } from './lib/hooks';
@@ -31,7 +30,8 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
   const [titlesBlurred, setTitlesBlurred] = useState(false);
   const [about, setAbout] = useState(``);
   const [aboutBlurred, setAboutBlurred] = useState(false);
-  const aboutValid = aboutBlurred && about.trim() === ``;
+  const aboutInvalid = aboutBlurred && about.trim() === ``;
+  const titlesInvalid = titlesBlurred && titles.trim() === ``;
   switch (props.state) {
     case `default`:
       return (
@@ -46,8 +46,8 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
               </p>
               <textarea
                 autoFocus
-                placeholder={aboutValid ? `Esta información es obligatoria.` : ``}
-                className={cx(`CartInput mt-3`, aboutValid && `invalid`)}
+                placeholder={aboutInvalid ? `Esta información es obligatoria.` : ``}
+                className={cx(`CartInput mt-3`, aboutInvalid && `invalid`)}
                 rows={4}
                 onFocus={() => setAboutBlurred(false)}
                 onBlur={() => setAboutBlurred(true)}
@@ -56,15 +56,16 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
                 {about}
               </textarea>
               <Heading>El título del libro/s que le gustaría recibir:</Heading>
-              <Input
-                valid={!titlesBlurred || titles.trim() !== ``}
-                placeholder=""
+              <textarea
+                placeholder={titlesInvalid ? `Esta información es obligatoria.` : ``}
+                className={cx(`CartInput mt-3`, titlesInvalid && `invalid`)}
+                rows={3}
                 onFocus={() => setTitlesBlurred(false)}
                 onBlur={() => setTitlesBlurred(true)}
-                value={titles}
-                onChange={(newValue) => setTitles(newValue)}
-                invalidMsg="Esta información es obligatoria."
-              />
+                onChange={(e) => setTitles(e.target.value)}
+              >
+                {titles}
+              </textarea>
               <Heading>Datos:</Heading>
               <p className="antialiased font-serif text-flgray-900 mb-5 md:text-justify">
                 Por favor, rellena el siguiente formulario en su totalidad. Es importante
