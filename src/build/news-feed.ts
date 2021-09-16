@@ -87,6 +87,13 @@ export function getNewsFeedItems(
       return date.substring(0, 10) > `2020-04-28`;
     })
     .filter(({ title }) => {
+      // we batched together the release of IP unabridged
+      if (title.includes(`Unabridged Works of Isaac Penington`) && !title.includes(`,`)) {
+        return false;
+      }
+      return true;
+    })
+    .filter(({ title }) => {
       // we batched together the release of the rest of GF's compolete works
       // into a custom out-of-band event, so as not to flood the feed
       return !title.match(/^(Doctrinal Works|The Great Mystery of the Great Whore)/);
@@ -137,6 +144,15 @@ function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
   return [
+    {
+      lang: [`en`],
+      type: `book`,
+      title: `The Unabridged Works of Isaac Penington, Vol. I — IV`,
+      description: `Download free ebooks or pdfs, or purchase paperbacks at cost.`,
+      ...dateFields(`2021-09-16T17:34:19.765Z`, formatter, `en`),
+      url: `/friend/isaac-penington`,
+    },
+
     {
       lang: [`es`],
       type: `chapter`,
