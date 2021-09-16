@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import cx from 'classnames';
 import gql from 'x-syntax';
 import ShippingAddress, { Props as ShippingAddressProps } from './ShippingAddress';
@@ -32,6 +32,10 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
   const [aboutBlurred, setAboutBlurred] = useState(false);
   const aboutInvalid = aboutBlurred && about.trim() === ``;
   const titlesInvalid = titlesBlurred && titles.trim() === ``;
+
+  // start at top of page
+  useEffect(() => window.scroll(0, 0), []);
+
   switch (props.state) {
     case `default`:
       return (
@@ -79,7 +83,7 @@ export const RequestFreeBooks: React.FC<Props> = (props) => {
             </div>
             <div className="mt-3 flex justify-center">
               <Button
-                className="bg-flgold"
+                className="bg-flgold mb-16"
                 disabled={
                   about.trim() === `` || titles.trim() === `` || !props.addressIsValid
                 }
@@ -217,7 +221,7 @@ const Heading: React.FC<{ className?: string; size?: 'text-xl' | 'text-2xl' }> =
 );
 
 const Wrap: React.FC<{ onClose: () => unknown }> = ({ children, onClose }) => (
-  <div className="p-3 sm:py-4 sm:px-6 lg:p-8 flex flex-col items-center relative">
+  <div className="py-6 px-8 sm:p-10 lg:p-12 flex flex-col items-center relative">
     <CloseButton onClick={onClose} />
     {children}
   </div>
