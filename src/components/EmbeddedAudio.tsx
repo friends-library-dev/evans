@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'classnames';
 import { LANG } from './env';
 
 interface Props {
@@ -19,7 +20,7 @@ const EmbeddedAudio: React.FC<Props> = ({
   title,
 }) => (
   <iframe
-    className={className}
+    className={cx(`bg-flgray-100`, className)}
     title={title}
     width="100%"
     height={String(height)}
