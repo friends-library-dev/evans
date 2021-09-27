@@ -66,6 +66,7 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         htmlTitle: htmlTitle(document.title),
         htmlShortTitle: htmlShortTitle(document.title),
         utf8ShortTitle: utf8ShortTitle(document.title),
+        originalTitle: document.originalTitle,
         region: documentRegion(document),
         date: documentDate(document),
         period: periodFromDate(documentDate(document)),

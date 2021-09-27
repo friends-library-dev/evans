@@ -1,6 +1,7 @@
 type Document implements Node {
   altLanguageUrl: String
   editions: [Edition!]!
+  originalTitle: String
 }
 
 type Edition @dontInfer {

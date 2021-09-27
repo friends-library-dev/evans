@@ -19,6 +19,7 @@ type Props = Omit<CoverProps, 'pages'> & {
   htmlTitle: string;
   htmlShortTitle: string;
   utf8ShortTitle: string;
+  originalTitle?: string;
   authorUrl: string;
   documentId: string;
   author: string;
@@ -196,9 +197,15 @@ const DocBlock: React.FC<Props> = (props) => {
               </>
             </Dual.P>
           )}
-          <p className="font-serif text-xl md:text-lg antialiased leading-relaxed">
-            {description}
-          </p>
+          <p
+            className="font-serif text-xl md:text-lg antialiased leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html:
+                props.originalTitle && LANG === `en`
+                  ? `${description} (Original title: <em>${props.originalTitle}</em>)`
+                  : description,
+            }}
+          />
           <LinksAndMeta
             className="hidden xl:block xl:mt-10"
             onClickAddToCart={() => {
