@@ -12,6 +12,7 @@ import BookTeaserCards from '../components/blocks/BookTeaserCards';
 import { makeScroller } from '../components/lib/scroll';
 import DocBlock from '../components/pages/document/DocBlock';
 import ListenBlock from '../components/pages/document/ListenBlock';
+import { Helmet } from 'react-helmet';
 
 interface Props {
   data: {
@@ -31,6 +32,7 @@ interface Props {
       utf8ShortTitle: string;
       description: string;
       altLanguageUrl: string | null;
+      ogImageUrl: string;
       isCompilation: boolean;
       isComplete: boolean;
       editions: {
@@ -111,7 +113,7 @@ const DocumentPage: React.FC<Props> = ({
   return (
     <Layout>
       <Seo
-        title={document.title}
+        title={document.utf8ShortTitle}
         description={bookPageMetaDesc(
           friend.name,
           document.description,
@@ -121,6 +123,9 @@ const DocumentPage: React.FC<Props> = ({
           LANG,
         )}
       />
+      <Helmet>
+        <meta property="og:image" content={document.ogImageUrl} />
+      </Helmet>
       <DocBlock
         description={document.description}
         htmlTitle={document.htmlTitle}
@@ -201,6 +206,7 @@ export const query = graphql`
       htmlTitle
       htmlShortTitle
       utf8ShortTitle
+      ogImageUrl
       editions {
         type
         isbn

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from 'react';
+import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 import cx from 'classnames';
 import { Helmet } from 'react-helmet';
@@ -17,10 +18,12 @@ import { useEscapeable } from '../lib/hooks';
 import PopUnder from '../PopUnder';
 import { appReducer, appInitialState, AppDispatch } from '../lib/app-state';
 import RequestFreeBooks from '../RequestFreeBooks';
+import { APP_URL } from '../../env';
 
 const store = CartStore.getSingleton();
 
 const Layout: React.FC = ({ children }) => {
+  const { pathname } = useLocation();
   const [appState, dispatch] = useReducer(appReducer, appInitialState);
   const [numCartItems] = useNumCartItems();
   const [jsEnabled, setJsEnabled] = useState<boolean>(false);
@@ -73,20 +76,24 @@ const Layout: React.FC = ({ children }) => {
     }
   `);
 
+  const metaDesc = [
+    `Friends Library exists to freely share the writings of early members of the Religious Society of Friends (Quakers), believing that no other collection of Christian writings more accurately communicates or powerfully illustrates the soul-transforming power of the gospel of Jesus Christ. We have ${data.site.meta.numEnglishBooks} books available for free download in multiple editions and digital formats (including PDF, MOBI, and EPUB), and a growing number of them are also recorded as audiobooks. Paperback copies are also available at very low cost.`,
+    `La Biblioteca de los Amigos ha sido creada para compartir gratuitamente los escritos de los primeros miembros de la Sociedad de Amigos (Cuáqueros), ya que creemos que no existe ninguna otra colección de escritos cristianos que comunique con mayor precisión, o que ilustre con más pureza, el poder del evangelio de Jesucristo que transforma el alma. Actualmente tenemos ${data.site.meta.numSpanishBooks} libros disponibles para descargarse gratuitamente en múltiples ediciones y formatos digitales, y un número creciente de estos libros están siendo grabados como audiolibros. Libros impresos también están disponibles por un precio muy económico. `,
+  ][LANG === `en` ? 0 : 1];
+
   return (
     <ErrorBoundary location="root">
       <AppDispatch.Provider value={dispatch}>
         <Helmet>
           <html lang={LANG} className={cx({ 'Menu--open': menuOpen })} />
           <title>{t`Friends Library`}</title>
+          <meta name="description" content={metaDesc} />
+          <meta property="og:title" content={`${t`Friends Library`}`} />
+          <meta property="og:description" content={metaDesc} />
+          <meta property="og:url" content={`${APP_URL}${pathname}`} />
           <meta
-            name="description"
-            content={
-              [
-                `Friends Library exists to freely share the writings of early members of the Religious Society of Friends (Quakers), believing that no other collection of Christian writings more accurately communicates or powerfully illustrates the soul-transforming power of the gospel of Jesus Christ. We have ${data.site.meta.numEnglishBooks} books available for free download in multiple editions and digital formats (including PDF, MOBI, and EPUB), and a growing number of them are also recorded as audiobooks. Paperback copies are also available at very low cost.`,
-                `La Biblioteca de los Amigos ha sido creada para compartir gratuitamente los escritos de los primeros miembros de la Sociedad de Amigos (Cuáqueros), ya que creemos que no existe ninguna otra colección de escritos cristianos que comunique con mayor precisión, o que ilustre con más pureza, el poder del evangelio de Jesucristo que transforma el alma. Actualmente tenemos ${data.site.meta.numSpanishBooks} libros disponibles para descargarse gratuitamente en múltiples ediciones y formatos digitales, y un número creciente de estos libros están siendo grabados como audiolibros. Libros impresos también están disponibles por un precio muy económico. `,
-              ][LANG === `en` ? 0 : 1]
-            }
+            property="og:image"
+            content={`https://raw.githubusercontent.com/friends-library-dev/native/eb1c41fe86792a61a9ef9383a36b1e62df11616e/release-assets/android/${LANG}/feature.png`}
           />
           <link
             rel="preconnect"

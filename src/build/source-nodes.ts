@@ -74,6 +74,7 @@ const sourceNodes: GatsbyNode['sourceNodes'] = async ({
         documentId: document.id,
         friendSlug: friend.slug,
         authorName: friend.name,
+        ogImageUrl: `https://flp-assets.nyc3.digitaloceanspaces.com/${document.path}/${document.primaryEdition.type}/images/cover-3d--w700.png`,
       };
 
       if (document.altLanguageId) {
