@@ -61,3 +61,9 @@
 .MapBlock .william-penn label:nth-of-type(2) {
   padding-right: 10em;
 }
+
+/* John G. Sargent's map is a little crowded, remove London */
+.MapBlock .john-g-sargent svg:nth-of-type(1),
+.MapBlock .john-g-sargent label:nth-of-type(1) {
+  display: none;
+}

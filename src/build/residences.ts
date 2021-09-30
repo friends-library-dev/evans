@@ -44,6 +44,14 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 19.0, left: 87.4, map: `Europe` };
     case `Sheffield, England`:
       return { top: 58.0, left: 27.4, map: `Europe` };
+    case `Paris, France`:
+      return { top: -99999, left: -99999, map: `UK` }; // don't show
+    case `Lincolnshire, England`:
+      return { top: 56.8, left: 59.5, map: `UK` };
+    case `Surrey, England`:
+      return { top: 76.8, left: 58.5, map: `UK` };
+    case `Godalming, England`:
+      return { top: 76.8, left: 58.2, map: `UK` };
     case `Ringwood, England`:
       return { top: 81.2, left: 53.6, map: `UK` };
     case `Needham Market, England`:
@@ -62,10 +70,14 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 52.0, left: 51.2, map: `US` };
     case `Nottingham, Pennsylvania`:
       return { top: 53.0, left: 47.2, map: `US` };
+    case `Hopkinton, Rhode Island`:
+      return { top: 38.0, left: 62.3, map: `US` };
     case `Providence, Rhode Island`:
       return { top: 38.0, left: 62.3, map: `US` };
     case `Rahway, New Jersey`:
       return { top: 46.9, left: 52.6, map: `US` };
+    case `Charlotte, Vermont`:
+      return { top: 19, left: 56.4, map: `US` };
     case `Stanford, New York`:
       return { top: 37.6, left: 54.6, map: `US` };
     case `Cornwall, New York`:
@@ -86,8 +98,14 @@ function position(residence: { city: string; region: string }): Position {
       return { top: 48.2, left: 57.6, map: `UK` };
     case `Amsterdam, Netherlands`:
       return { top: 64.5, left: 78.6, map: `UK` };
+    case `Fritchley, England`:
+      return { top: 56.0, left: 54.5, map: `UK` };
+    case `Cockermouth, England`:
+      return { top: 40.0, left: 47.5, map: `UK` };
     case `Ulverstone, England`:
       return { top: 45.0, left: 48.4, map: `UK` };
+    case `Moate, Ireland`:
+      return { top: 53.8, left: 31.5, map: `UK` };
     case `Edenderry, Ireland`:
       return { top: 54.3, left: 33.7, map: `UK` };
     case `Tottenham, England`:

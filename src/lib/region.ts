@@ -12,6 +12,7 @@ export function documentRegion(doc: Document): string {
       return residence.region;
     case `Wales`:
     case `Netherlands`:
+    case `France`:
     case `mixed (compilation)`:
       return `Other`;
     case `Ohio`:
@@ -21,6 +22,7 @@ export function documentRegion(doc: Document): string {
     case `New Jersey`:
     case `Rhode Island`:
     case `New York`:
+    case `Vermont`:
       return `Eastern US`;
     default:
       throw new Error(`Error inferring explore region from doc: ${doc.path}`);
