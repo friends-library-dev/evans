@@ -18,6 +18,7 @@ const SelectableMap: React.FC<Props> = ({
   className,
   style = {},
 }) => {
+  // NOTE: not translated because this block is currently not rendered on Spanish site
   return (
     <div className={cx(className, `SelectableMap relative`)} style={style}>
       <LocationMarker

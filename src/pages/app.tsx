@@ -122,14 +122,38 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </Dual.P>
         <Dual.Div className="flex space-x-4 mb-10">
           <>
-            <Image className="w-48" fluid={data.splashEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioListEn.image.fluid} alt="" />
+            <Image
+              className="w-48"
+              fluid={data.splashEn.image.fluid}
+              alt="Screenshot of Friends Library App splash screen"
+            />
+            <Image
+              className="w-48"
+              fluid={data.audioEn.image.fluid}
+              alt="Screenshot of Friends Library App audiobook screen"
+            />
+            <Image
+              className="w-48"
+              fluid={data.audioListEn.image.fluid}
+              alt="Screenshot of Friends Library App audiobooks screen"
+            />
           </>
           <>
-            <Image className="w-48" fluid={data.splashEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.audioListEs.image.fluid} alt="" />
+            <Image
+              className="w-48"
+              fluid={data.splashEs.image.fluid}
+              alt="Captura de la pantalla de carga de la aplicación de la Biblioteca de Amigos"
+            />
+            <Image
+              className="w-48"
+              fluid={data.audioEs.image.fluid}
+              alt="Captura de la pantalla  de audiolibro de la aplicación de la Biblioteca de  Amigos"
+            />
+            <Image
+              className="w-48"
+              fluid={data.audioListEs.image.fluid}
+              alt="Captura de la pantalla  de audiolibros de la aplicación de la Biblioteca de  Amigos"
+            />
           </>
         </Dual.Div>
         <Dual.H3 className="text-flgray-900 text-2xl tracking-widest mb-6">
@@ -168,14 +192,38 @@ const AppPage: React.FC<Props> = ({ data }) => {
         </Dual.P>
         <Dual.Div className="flex space-x-4 mb-10">
           <>
-            <Image className="w-48" fluid={data.homeEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.readEn.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.ebookEn.image.fluid} alt="" />
+            <Image
+              className="w-48"
+              fluid={data.homeEn.image.fluid}
+              alt="Screenshot of Friends Library App home screen"
+            />
+            <Image
+              className="w-48"
+              fluid={data.readEn.image.fluid}
+              alt="Screenshot of Friends Library App ebook screen"
+            />
+            <Image
+              className="w-48"
+              fluid={data.ebookEn.image.fluid}
+              alt="Screenshot of Friends Library App ebook reader screen"
+            />
           </>
           <>
-            <Image className="w-48" fluid={data.homeEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.readEs.image.fluid} alt="" />
-            <Image className="w-48" fluid={data.ebookEs.image.fluid} alt="" />
+            <Image
+              className="w-48"
+              fluid={data.homeEs.image.fluid}
+              alt="Captura de la pantalla principal de la aplicación de la Biblioteca de  Amigos"
+            />
+            <Image
+              className="w-48"
+              fluid={data.readEs.image.fluid}
+              alt="Captura de la pantalla de ebooks de la aplicación de la Biblioteca de  Amigos"
+            />
+            <Image
+              className="w-48"
+              fluid={data.ebookEs.image.fluid}
+              alt="Captura de la pantalla del lector de ebooks de la aplicación de la Biblioteca de  Amigos"
+            />
           </>
         </Dual.Div>
 

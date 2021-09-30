@@ -28,7 +28,7 @@ const SubHeroBlock: React.FC<Props> = ({
       durationFadeIn={0}
       className="Devices absolute right-0 top-0 hidden md:block"
       fluid={imgDeviceArray}
-      alt="Friends Library books on various devices"
+      alt=""
     />
     <Heading darkBg className="text-white md:hidden">
       {t`Our Books`}

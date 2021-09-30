@@ -8,6 +8,7 @@ import Us from '../../images/maps/US.png';
 import Europe from '../../images/maps/Europe--2x.png';
 import LocationMarker from '../../icons/LocationMarker';
 import './MapBlock.css';
+import { LANG } from '../../env';
 
 // @see packages/ui/src/images/maps/readme.md for how to modify map PNGs
 
@@ -47,9 +48,21 @@ const MapBlock: React.FC<Props> = ({ bgImg, friendName, markers, residences, map
             .map((m) => (
               <LocationMarker key={m.label} top={m.top} left={m.left} label={m.label} />
             ))}
-          {map === `UK` && <img src={Uk} alt="Map of U.K." />}
-          {map === `US` && <img src={Us} alt="Map of U.S." />}
-          {map === `Europe` && <img src={Europe} alt="Map of Europe." />}
+          {map === `UK` && (
+            <img src={Uk} alt={LANG === `en` ? `Map of U.K.` : `Mapa de Reino Unido.`} />
+          )}
+          {map === `US` && (
+            <img
+              src={Us}
+              alt={LANG === `en` ? `Map of U.S.` : `Mapa, de, estados unidos de américa.`}
+            />
+          )}
+          {map === `Europe` && (
+            <img
+              src={Europe}
+              alt={LANG === `en` ? `Map of Europe.` : `Mapa de europa.`}
+            />
+          )}
         </div>
       </div>
     </div>
