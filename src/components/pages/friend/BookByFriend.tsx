@@ -39,23 +39,13 @@ const BookByFriend: React.FC<Props> = (props) => {
     >
       <ThreeD
         {...props}
-        scaler={1 / 2}
-        scope="1-2"
-        className="-mt-20 md:mt-4 md:-ml-32"
+        scaler={isAlone ? 1 / 2 : 1 / 3}
+        scope={isAlone ? `1-2` : `1-3`}
+        className={isAlone ? `-mt-20 md:mt-4 md:-ml-32` : `mt-4 -ml-24`}
         pages={pages[0]}
         shadow={true}
       />
-      {!isAlone && (
-        <ThreeD
-          {...props}
-          scaler={1 / 3}
-          scope="1-3"
-          className="mt-4 -ml-24"
-          pages={pages[0]}
-          shadow={true}
-        />
-      )}
-      <div className="mt-6 md:pl-6 md:py-6 lg:pl-2 lg:py-2 self-start flex flex-col">
+      <div className="BookByFriend--main mt-6 md:pl-6 md:py-6 lg:pl-2 lg:py-2 self-start flex flex-col">
         <h4
           className={cx(
             `text-center font-sans tracking-wider text-lg`,
@@ -70,24 +60,24 @@ const BookByFriend: React.FC<Props> = (props) => {
         <p className="body-text mt-4 md:text-lg lg:text-base xl:text-lg">{description}</p>
         <ul
           className={cx(
-            `flex flex-wrap font-sans text-sm antialiased text-flgray-900 mt-4 leading-loose`,
+            `flex flex-wrap font-sans text-sm antialiased text-flgray-900 mt-4 leading-tight`,
             `md:text-lg md:mt-6`,
             !isAlone && `lg:text-sm xl:text-lg`,
           )}
         >
-          <li className="text-sans w-1/2 pb-2">
+          <li className="text-sans w-1/2 pb-2 whitespace-no-wrap mb-2">
             <ClockIcon className="mr-2" />
             {t`${pages.reduce((sum, p) => sum + p, 0)} pages`}
             {pages.length > 1 && (
               <em className="italic pl-1 text-sm">({pages.length} vol)</em>
             )}
           </li>
-          <li className="text-sans w-1/2 capitalize">
+          <li className="text-sans w-1/2 capitalize whitespace-no-wrap mb-2">
             <TagsIcon className="mr-2" />
             {props.tags.map(translate).join(`, `)}
           </li>
           {hasAudio && (
-            <li className="text-sans w-1/2">
+            <li className="text-sans w-1/2 whitespace-no-wrap mb-2">
               <AudioIcon className="mr-2" />
               {t`Audio Book`}
             </li>
