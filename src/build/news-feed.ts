@@ -143,7 +143,25 @@ function entityMaps(friends: Friend[]): [Map<string, Edition>, Map<string, Docum
 function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
+  'October 7, 2021 -- The Friends Library App version 2.1 has been released. New in this release is support for full-screen reading and listening on both iPads and Android tablets.';
+  '7 de octubre de 2021 - Se ha lanzado la versión 2.1 de la aplicación de la Biblioteca de los Amigos. La novedad de esta versión es la posibilidad de leer y escuchar tanto en iPads como en tabletas Android.';
   return [
+    {
+      lang: [`es`],
+      type: `feature`,
+      title: `La aplicación de la Biblioteca de los Amigos ahora es compatible con iPads y tabletas`,
+      description: `Ya está disponible para descargar gratuitamente en la App Store de Apple o en Google Play para Android`,
+      ...dateFields(`2021-10-07T13:30:57.106Z`, formatter, `es`),
+      url: `/app`,
+    },
+    {
+      lang: [`en`],
+      type: `feature`,
+      title: `The Friends Library App now supports iPads and tablets`,
+      description: `Available now for free download in the Apple App Store or on Google Play for Android`,
+      ...dateFields(`2021-10-07T13:30:57.106Z`, formatter, `en`),
+      url: `/app`,
+    },
     {
       lang: [`en`],
       type: `book`,
@@ -152,7 +170,6 @@ function getOutOfBandEvents(
       ...dateFields(`2021-09-16T17:34:19.765Z`, formatter, `en`),
       url: `/friend/isaac-penington`,
     },
-
     {
       lang: [`es`],
       type: `chapter`,

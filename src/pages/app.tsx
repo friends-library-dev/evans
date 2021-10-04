@@ -56,6 +56,25 @@ const AppPage: React.FC<Props> = ({ data }) => {
             <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
               Update
             </span>
+            <b>October 7, 2021</b> &mdash; The Friends Library App <b>version 2.1</b> has
+            been released. New in this release is support for full-screen reading and
+            listening on both <em>iPads</em> and <em>Android tablets.</em>;
+          </>
+          <>
+            <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
+              Actualización
+            </span>
+            <b>7 de octubre de 2021</b> Se ha lanzado la <b>versión 2.1</b> de la
+            aplicación de la Biblioteca de los Amigos. La novedad de esta versión es la
+            posibilidad de leer y escuchar tanto en <em>iPads</em> como en{` `}
+            <em>tabletas Android.</em>
+          </>
+        </Dual.P>
+        <Dual.P className="body-text text-xl pb-8 max-w-screen-md leading-loose">
+          <>
+            <span className="bg-green-600 text-white rounded-full font-sans uppercase text-xs px-2 py-0 inline-block mr-2 transform -translate-y-1">
+              Update
+            </span>
             <b>June 28, 2021</b> &mdash; The Friends Library App <b>version 2</b> has been
             released. New in this release is the ability to <b>read</b> all of our
             published books <em>from directly within the app.</em>
