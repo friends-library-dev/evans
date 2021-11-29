@@ -200,10 +200,9 @@ const DocBlock: React.FC<Props> = (props) => {
           <p
             className="font-serif text-xl md:text-lg antialiased leading-relaxed"
             dangerouslySetInnerHTML={{
-              __html:
-                props.originalTitle && LANG === `en`
-                  ? `${description} (Original title: <em>${props.originalTitle}</em>)`
-                  : description,
+              __html: props.originalTitle
+                ? `${description} (${t`Original title`}: <em>${props.originalTitle}</em>)`
+                : description,
             }}
           />
           <LinksAndMeta
