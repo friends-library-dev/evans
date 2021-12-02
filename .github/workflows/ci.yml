@@ -71,6 +71,9 @@ jobs:
     outputs:
       deploy_url: ${{ steps.deploy.outputs.url }}
     steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - uses: actions/checkout@v2
         with:
           path: evans
@@ -130,6 +133,9 @@ jobs:
       deploy_url: ${{ steps.deploy.outputs.url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - uses: actions/checkout@v2
         with:
           path: evans
