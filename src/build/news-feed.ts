@@ -143,9 +143,15 @@ function entityMaps(friends: Friend[]): [Map<string, Edition>, Map<string, Docum
 function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
-  'October 7, 2021 -- The Friends Library App version 2.1 has been released. New in this release is support for full-screen reading and listening on both iPads and Android tablets.';
-  '7 de octubre de 2021 - Se ha lanzado la versión 2.1 de la aplicación de la Biblioteca de los Amigos. La novedad de esta versión es la posibilidad de leer y escuchar tanto en iPads como en tabletas Android.';
   return [
+    {
+      lang: [`es`],
+      type: `chapter`,
+      title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 6)`,
+      description: `El sexto capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2022-01-18T14:28:31.144Z`, formatter, `es`),
+      url: `/james-nayler/escritos`,
+    },
     {
       lang: [`es`],
       type: `feature`,
