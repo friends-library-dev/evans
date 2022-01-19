@@ -147,6 +147,14 @@ function getOutOfBandEvents(
     {
       lang: [`es`],
       type: `chapter`,
+      title: `Hay un Espíritu que Siento en Mí &mdash; (Apéndice)`,
+      description: `El último capítulo de los escritos de James Nayler ha sido traducido. Ya está disponible el libro completo.`,
+      ...dateFields(`2022-01-19T15:48:32.765Z`, formatter, `es`),
+      url: `/james-nayler/escritos`,
+    },
+    {
+      lang: [`es`],
+      type: `chapter`,
       title: `Hay un Espíritu que Siento en Mí &mdash; (Capítulo 6)`,
       description: `El sexto capítulo de los escritos de James Nayler ya está disponible y se puede descargar gratuitamente.`,
       ...dateFields(`2022-01-18T14:28:31.144Z`, formatter, `es`),
