@@ -24,7 +24,7 @@ const NotFoundHeroBlock: React.FC<Props> = ({ bgImg }) => (
         Sorry, it looks like you followed a broken link, or tried a URL that doesn’t
         exist. try searching below for what you’re looking for, or you can contact us if
         you believe you’ve found a problem with the website &mdash; we’d love to know
-        about so we can fix it as soon as possible!
+        about it so we can fix it as soon as possible!
       </>
       <>
         Lo sentimos, parece que has entrado en un enlace roto, o intentado abrir un URL
