@@ -78,7 +78,7 @@
     "@friends-library/dpc-fs": "^3.0.1",
     "@friends-library/env": "^1.4.0",
     "@friends-library/friend-repos": "^1.1.1",
-    "@friends-library/friends": "^4.34.0",
+    "@friends-library/friends": "^4.35.0",
     "@friends-library/theme": "^1.2.0",
     "@types/classnames": "^2.2.10",
     "@types/fs-extra": "^9.0.1",
