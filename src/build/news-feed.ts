@@ -147,6 +147,14 @@ function getOutOfBandEvents(
     {
       lang: [`es`],
       type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulo 13)`,
+      description: `El decimotercer capítulo de la <em>Historia de los Cuáqueros</em> ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2022-01-31T18:21:34.548Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
+      lang: [`es`],
+      type: `chapter`,
       title: `Hay un Espíritu que Siento en Mí &mdash; (Apéndice)`,
       description: `El último capítulo de los escritos de James Nayler ha sido traducido. Ya está disponible el libro completo.`,
       ...dateFields(`2022-01-19T15:48:32.765Z`, formatter, `es`),
