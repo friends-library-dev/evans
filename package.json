@@ -4,7 +4,7 @@
   "author": "Jared Henderson <jared@netrivet.com>",
   "repository": "github:friends-library-dev/evans",
   "main": "./dist/query.js",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "scripts": {
     "develop:en": "GATSBY_LANG=en GATSBY_PORT=9222 GATSBY_ALT_PORT=9333 gatsby develop --port 9222",
     "develop:es": "GATSBY_LANG=es GATSBY_PORT=9333 GATSBY_ALT_PORT=9222 gatsby develop --port 9333",
