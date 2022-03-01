@@ -3,7 +3,8 @@
   "description": "Friends Library websites (English and Spanish)",
   "author": "Jared Henderson <jared@netrivet.com>",
   "repository": "github:friends-library-dev/evans",
-  "private": true,
+  "main": "./dist/query.js",
+  "version": "1.0.0",
   "scripts": {
     "develop:en": "GATSBY_LANG=en GATSBY_PORT=9222 GATSBY_ALT_PORT=9333 gatsby develop --port 9222",
     "develop:es": "GATSBY_LANG=es GATSBY_PORT=9333 GATSBY_ALT_PORT=9222 gatsby develop --port 9333",
@@ -24,10 +25,11 @@
     "lint:fix": "npm run lint -- --fix",
     "ts:check": "fldev ts:check",
     "format": "fldev format",
-    "xgraphql:codegen": "flp-gql-codegen --convert-dates-to-string",
     "pregraphql:codegen": "mv src/build/schema.{graphql,txt}; true",
     "postgraphql:codegen": "mv src/build/schema.{txt,graphql}",
-    "graphql:codegen": "flp-gql-codegen --convert-dates-to-string"
+    "graphql:codegen": "flp-gql-codegen --convert-dates-to-string",
+    "npub:precheck": "fldev ci && npm run prepublishOnly",
+    "prepublishOnly": "tsc src/build/query.ts --skipLibCheck --target esnext --moduleResolution node --outDir dist/ --declaration"
   },
   "dependencies": {
     "@friends-library/cover-component": "^3.1.6",

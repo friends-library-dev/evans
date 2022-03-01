@@ -1,0 +1,16 @@
+.github/
+src/
+static/
+.cache/
+public/
+*.json
+.eslintrc.js      
+babel.config.js   
+gatsby-browser.js 
+gatsby-config.js  
+gatsby-node.js    
+jest.config.js    
+package.json      
+postcss.config.js 
+tailwind.config.js
+_redirects

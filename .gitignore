@@ -1,6 +1,7 @@
 node_modules/
 .cache/
 public
+dist/
 src/build/.dpc-cache.json
 src/css/cover.css
 jest.config.js
