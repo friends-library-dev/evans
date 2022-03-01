@@ -189,6 +189,7 @@ export interface Friends_friends_documents_editions_audio_files {
 export interface Friends_friends_documents_editions_audio {
   __typename: 'Audio';
   reader: string;
+  isPublished: boolean;
   isIncomplete: boolean;
   externalPlaylistIdHq: Int64 | null;
   externalPlaylistIdLq: Int64 | null;

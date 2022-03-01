@@ -86,6 +86,7 @@ const QUERY = gql`
           }
           audio {
             reader
+            isPublished
             isIncomplete
             externalPlaylistIdHq
             externalPlaylistIdLq

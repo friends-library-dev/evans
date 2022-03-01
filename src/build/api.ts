@@ -19,11 +19,7 @@ let cachedFriends: Friend[] | null = null;
 
 export async function queryFriends(): Promise<Friend[]> {
   if (cachedFriends) return cachedFriends;
-  const { data } = await client().query<Friends>({
-    query: gql`
-      ${QUERY}
-    `,
-  });
+  const { data } = await client().query<Friends>({ query: gql(QUERY) });
   // break all of the apollo read-only stuff with JSON dance
   cachedFriends = sortChildren(JSON.parse(JSON.stringify(data.friends)));
   return data.friends;
@@ -111,7 +107,9 @@ function sortChildren(friends: Friend[]): Friend[] {
     for (const document of friend.documents) {
       document.editions.sort(editionsByType);
       for (const edition of document.editions) {
-        if (edition.audio) {
+        if (edition.audio?.isPublished === false) {
+          edition.audio = null;
+        } else if (edition.audio) {
           edition.audio.parts.sort(byOrder);
         }
       }
