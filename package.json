@@ -11,7 +11,7 @@
     "prebuild": "npm run cover-css",
     "predevelop:en:site": "npm run cover-css",
     "predevelop:es:site": "npm run cover-css",
-    "build": "gatsby build && cp ./_redirects ./public/",
+    "build": "gatsby build && cp ./_redirects ./public/ && cp ./_headers ./public/",
     "build:en": "GATSBY_LANG=en npm run build",
     "build:es": "GATSBY_LANG=es npm run build",
     "dpc-cache:clean": "rm -f src/build/.dpc-cache.json",

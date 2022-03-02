@@ -92,6 +92,7 @@ const Layout: React.FC = ({ children }) => {
         <Helmet>
           <html lang={LANG} className={cx({ 'Menu--open': menuOpen })} />
           <title>{t`Friends Library`}</title>
+          <meta name="referrer" content="unsafe-url" />
           <meta name="description" content={metaDesc} />
           <meta property="og:title" content={`${t`Friends Library`}`} />
           <meta property="og:description" content={metaDesc} />
