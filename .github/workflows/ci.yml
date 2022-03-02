@@ -168,6 +168,8 @@ jobs:
   storybook:
     name: build-storybook
     runs-on: ubuntu-latest
+    # skip for now until https://github.com/microsoft/TypeScript/issues/48039 fixed
+    if: false
     steps:
       - uses: actions/checkout@v2
         with:
