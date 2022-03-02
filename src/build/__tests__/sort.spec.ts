@@ -1,6 +1,6 @@
-import { expect, describe, it, test } from '@jest/globals';
+import { expect, describe, it } from '@jest/globals';
 import { EditionType } from '../../graphql/globalTypes';
-import { sortDocuments } from '../api';
+import { sortDocuments } from '../query';
 
 describe(`sortDocuments()`, () => {
   let docs: Array<Parameters<typeof sortDocuments>[0]> = [];
