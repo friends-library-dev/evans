@@ -22,6 +22,7 @@ export function sortFriends(friends: Friend[]): Friend[] {
         if (edition.audio?.isPublished === false) {
           edition.audio = null;
         } else if (edition.audio) {
+          edition.audio.parts = edition.audio.parts.filter((part) => part.isPublished);
           edition.audio.parts.sort(byOrder);
         }
       }
@@ -160,6 +161,7 @@ export const QUERY = gql`
             createdAt
             parts {
               title
+              isPublished
               order
               chapters
               duration

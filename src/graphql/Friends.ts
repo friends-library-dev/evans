@@ -119,6 +119,7 @@ export interface Friends_friends_documents_editions_audio_parts_mp3File {
 export interface Friends_friends_documents_editions_audio_parts {
   __typename: 'AudioPart';
   title: string;
+  isPublished: boolean;
   order: number;
   chapters: number[];
   duration: number;
