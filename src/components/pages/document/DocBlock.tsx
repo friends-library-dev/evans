@@ -162,7 +162,8 @@ const DocBlock: React.FC<Props> = (props) => {
                 setDownloading(false);
                 setWizardOffset({ top: -9999, left: -9999 });
               }, 4000);
-              window.location.href = edition.downloadUrl[fileType];
+              const referer = `${window.location.origin}${window.location.pathname}`;
+              window.location.href = `${edition.downloadUrl[fileType]}?referer=${referer}`;
             }
           }}
           editions={props.editions.map((e) => e.type)}
