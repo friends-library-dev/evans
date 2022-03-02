@@ -1,10 +1,9 @@
 import fetch from 'cross-fetch';
 import { c, log } from 'x-chalk';
-import { EditionType } from '@friends-library/types';
 import { gql, getClient, ClientType, ClientConfig } from '@friends-library/db';
 import { Document, Edition, Friend, PublishedCounts } from './types';
 import { Friends } from '../graphql/Friends';
-import QUERY from './query';
+import { QUERY, sortFriends } from './query';
 
 type DocumentEntities = {
   document: Document;
@@ -21,7 +20,7 @@ export async function queryFriends(): Promise<Friend[]> {
   if (cachedFriends) return cachedFriends;
   const { data } = await client().query<Friends>({ query: gql(QUERY) });
   // break all of the apollo read-only stuff with JSON dance
-  cachedFriends = sortChildren(JSON.parse(JSON.stringify(data.friends)));
+  cachedFriends = sortFriends(JSON.parse(JSON.stringify(data.friends)));
   return data.friends;
 }
 
@@ -98,56 +97,6 @@ export async function queryPublishedCounts(): Promise<PublishedCounts> {
   ).length;
 
   return publishedCounts;
-}
-
-function sortChildren(friends: Friend[]): Friend[] {
-  for (const friend of friends) {
-    friend.quotes.sort(byOrder);
-    friend.documents.sort(sortDocuments);
-    for (const document of friend.documents) {
-      document.editions.sort(editionsByType);
-      for (const edition of document.editions) {
-        if (edition.audio?.isPublished === false) {
-          edition.audio = null;
-        } else if (edition.audio) {
-          edition.audio.parts.sort(byOrder);
-        }
-      }
-    }
-  }
-  return friends;
-}
-
-function editionsByType<T extends { type: EditionType }>(a: T, b: T): number {
-  if (a.type === `updated`) {
-    return -1;
-  }
-  if (a.type === `modernized`) {
-    return b.type === `updated` ? 1 : -1;
-  }
-  return 1;
-}
-
-function byOrder<T extends { order: number }>(a: T, b: T): number {
-  return a.order < b.order ? -1 : 1;
-}
-
-type SortableDoc = {
-  primaryEdition: null | { type: EditionType };
-  title: string;
-};
-
-export function sortDocuments(a: SortableDoc, b: SortableDoc): number {
-  if (a.primaryEdition?.type !== b.primaryEdition?.type) {
-    if (a.primaryEdition?.type === `updated`) {
-      return -1;
-    }
-    if (a.primaryEdition?.type === `modernized`) {
-      return b.primaryEdition?.type === `updated` ? 1 : -1;
-    }
-    return 1;
-  }
-  return a.title < b.title ? -1 : 1;
 }
 
 function client(): ClientType {

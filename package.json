@@ -3,7 +3,7 @@
   "description": "Friends Library websites (English and Spanish)",
   "author": "Jared Henderson <jared@netrivet.com>",
   "repository": "github:friends-library-dev/evans",
-  "main": "./dist/query.js",
+  "main": "./dist/build/query.js",
   "version": "1.0.0-beta.3",
   "scripts": {
     "develop:en": "GATSBY_LANG=en GATSBY_PORT=9222 GATSBY_ALT_PORT=9333 gatsby develop --port 9222",
@@ -31,7 +31,8 @@
     "prepublishOnly": "tsc src/build/query.ts --skipLibCheck --target esnext --moduleResolution node --outDir dist/ --declaration"
   },
   "dependencies": {
-    "x-syntax": "^1.0.0"
+    "x-syntax": "^1.0.0",
+    "@friends-library/types": "^7.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.11.0",
@@ -44,7 +45,6 @@
     "@friends-library/locale": "^2.1.0",
     "@friends-library/lulu": "^2.0.1",
     "@friends-library/theme": "^1.2.0",
-    "@friends-library/types": "^7.0.0",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@reach/accordion": "^0.11.2",
