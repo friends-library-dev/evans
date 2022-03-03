@@ -42,7 +42,7 @@
     "@friends-library/dpc-fs": "^4.0.2",
     "@friends-library/env": "^1.4.0",
     "@friends-library/friend-repos": "^1.1.1",
-    "@friends-library/locale": "^2.1.0",
+    "@friends-library/locale": "^2.2.0",
     "@friends-library/lulu": "^2.0.1",
     "@friends-library/theme": "^1.2.0",
     "@mdx-js/mdx": "^1.6.22",

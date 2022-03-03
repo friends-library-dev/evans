@@ -31,7 +31,7 @@ const Fees: React.FC<Props> = ({
           <td>{money(shipping)}</td>
         </tr>
         <tr>
-          <td>Handling Fee</td>
+          <td>{t`Handling Fee`}</td>
           <td>{money(handling)}</td>
         </tr>
         <tr>
