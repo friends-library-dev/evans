@@ -55,7 +55,13 @@ export async function getNewsFeedItems(
           ...dateFields(edition.audio.createdAt, formatter, lang),
         });
       }
-    } else if (lang === `en` && !document.incomplete && document.altLanguageDocument) {
+    } else if (
+      lang === `en` &&
+      !document.incomplete &&
+      document.altLanguageDocument &&
+      !edition.isDraft &&
+      edition.impression
+    ) {
       const englishTitle = document.altLanguageDocument.htmlShortTitle;
       items.push({
         title: `${document.htmlShortTitle} &mdash; (Spanish)`,
@@ -64,7 +70,7 @@ export async function getNewsFeedItems(
         description: friend.isCompilations
           ? `<em>${englishTitle}</em> now translated and available on the Spanish site.`
           : `${friend.name}&rsquo;s <em>${englishTitle}</em> now translated and available on the Spanish site.`,
-        ...dateFields(edition.impression!.createdAt, formatter, lang),
+        ...dateFields(edition.impression.createdAt, formatter, lang),
       });
     }
 

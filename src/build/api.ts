@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch';
 import { c, log } from 'x-chalk';
-import { gql, getClient, ClientType, ClientConfig } from '@friends-library/db';
+import { gql, getClient, ClientType, ClientConfig, writable } from '@friends-library/db';
 import { Document, Edition, Friend, PublishedCounts } from './types';
 import { Friends } from '../graphql/Friends';
 import { QUERY, sortFriends } from './query';
@@ -19,8 +19,7 @@ let cachedFriends: Friend[] | null = null;
 export async function queryFriends(): Promise<Friend[]> {
   if (cachedFriends) return cachedFriends;
   const { data } = await client().query<Friends>({ query: gql(QUERY) });
-  // break all of the apollo read-only stuff with JSON dance
-  cachedFriends = sortFriends(JSON.parse(JSON.stringify(data.friends)));
+  cachedFriends = sortFriends(writable(data.friends));
   return data.friends;
 }
 

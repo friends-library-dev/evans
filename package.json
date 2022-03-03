@@ -37,7 +37,7 @@
   "devDependencies": {
     "@babel/plugin-transform-typescript": "^7.11.0",
     "@friends-library/cover-component": "^3.1.6",
-    "@friends-library/db": "^3.0.5",
+    "@friends-library/db": "^3.1.0",
     "@friends-library/dev": "~4.5.2",
     "@friends-library/dpc-fs": "^4.0.2",
     "@friends-library/env": "^1.4.0",
