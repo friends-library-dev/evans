@@ -41,7 +41,7 @@ const BookByFriend: React.FC<Props> = (props) => {
         {...props}
         scaler={isAlone ? 1 / 2 : 1 / 3}
         scope={isAlone ? `1-2` : `1-3`}
-        className={isAlone ? `-mt-20 md:mt-4 md:-ml-32` : `mt-4 -ml-24`}
+        className={isAlone ? `-mt-20 md:mt-4 md:-ml-32` : `mt-4 md:-ml-24`}
         pages={pages[0]}
         shadow={true}
       />
@@ -60,29 +60,25 @@ const BookByFriend: React.FC<Props> = (props) => {
         <p className="body-text mt-4 md:text-lg lg:text-base xl:text-lg">{description}</p>
         <ul
           className={cx(
-            `flex flex-wrap font-sans text-sm antialiased text-flgray-900 mt-4 leading-tight`,
-            `md:text-lg md:mt-6`,
+            `flex flex-col sm:flex-wrap sm:flex-row font-sans text-sm antialiased text-flgray-900 mt-4 leading-tight`,
+            `md:text-lg md:mt-6 sm:mt-6`,
+            `pl-6 md:pl-0`,
             !isAlone && `lg:text-sm xl:text-lg`,
           )}
         >
-          <li className="text-sans w-1/2 pb-2 whitespace-no-wrap mb-2">
-            <ClockIcon className="mr-2" />
+          <MetaItem Icon={ClockIcon} className="sm:w-1/3">
             {t`${pages.reduce((sum, p) => sum + p, 0)} pages`}
             {pages.length > 1 && (
               <em className="italic pl-1 text-sm">({pages.length} vol)</em>
             )}
-          </li>
-          <li className="text-sans w-1/2 capitalize whitespace-no-wrap mb-2">
-            <TagsIcon className="mr-2" />
+          </MetaItem>
+          <MetaItem Icon={TagsIcon} className="sm:w-2/3">
             {props.tags
               .map((t) => translate(t.replace(`spiritualLife`, `spiritual life`)))
               .join(`, `)}
-          </li>
+          </MetaItem>
           {hasAudio && (
-            <li className="text-sans w-1/2 whitespace-no-wrap mb-2">
-              <AudioIcon className="mr-2" />
-              {t`Audio Book`}
-            </li>
+            <MetaItem Icon={AudioIcon} className="sm:w-1/3">{t`Audio Book`}</MetaItem>
           )}
         </ul>
         <div className="flex flex-col items-center">
@@ -94,5 +90,15 @@ const BookByFriend: React.FC<Props> = (props) => {
     </div>
   );
 };
+
+const MetaItem: React.FC<{
+  Icon: React.FC<{ className?: string }>;
+  className?: string;
+}> = ({ Icon, children, className }) => (
+  <li className={cx(`capitalize text-sans pb-4 sm:pb-3 flex`, className)}>
+    <Icon className="mr-2" />
+    {children}
+  </li>
+);
 
 export default BookByFriend;
