@@ -10,7 +10,7 @@ import { CreateFreeOrderRequestInput } from './globalTypes';
 // ====================================================
 
 export interface CreateFreeOrderRequest_request {
-  __typename: 'IdentifyEntity';
+  __typename: 'FreeOrderRequest';
   id: string;
 }
 
