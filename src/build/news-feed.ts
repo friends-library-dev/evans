@@ -131,6 +131,22 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`en`],
+      type: `feature`,
+      title: `Search Ebook Text in the Friends Library App`,
+      description: `New version released today supports searching ebooks for specific words and phrases.`,
+      ...dateFields(`2022-03-24T18:51:50.027Z`, formatter, `en`),
+      url: `/app`,
+    },
+    {
+      lang: [`es`],
+      type: `feature`,
+      title: `Buscar un texto específico en nuestra aplicación`,
+      description: `Hoy se ha lanzado una nueva versión que permite buscar palabras y frases específicas en los libros.`,
+      ...dateFields(`2022-03-24T18:51:50.027Z`, formatter, `es`),
+      url: `/app`,
+    },
+    {
       lang: [`es`],
       type: `chapter`,
       title: `Historia de los Cuáqueros &mdash; (Capítulo 13)`,
