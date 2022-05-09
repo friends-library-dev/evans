@@ -131,6 +131,14 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`es`],
+      type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulos 14 y 15)`,
+      description: `Los capítulos decimocuarto y decimoquinto de la <em>Historia de los Cuáqueros</em> ya están disponible, y se pueden descargar gratuitamente.`,
+      ...dateFields(`2022-05-09T15:01:59.905Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
       lang: [`en`],
       type: `feature`,
       title: `Search Ebook Text in the Friends Library App`,
