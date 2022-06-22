@@ -45,6 +45,8 @@ function getPosition(residence: Pick<FriendResidence, 'city' | 'region'>): Posit
       return { top: -99999, left: -99999, map: `UK` }; // don't show
     case `Lincolnshire, England`:
       return { top: 56.8, left: 59.5, map: `UK` };
+    case `Nottingham, England`:
+      return { top: 59.1, left: 55.9, map: `UK` };
     case `Surrey, England`:
       return { top: 76.8, left: 58.5, map: `UK` };
     case `Godalming, England`:
@@ -213,6 +215,8 @@ function getPosition(residence: Pick<FriendResidence, 'city' | 'region'>): Posit
       return { top: 11.2, left: 52.2, map: `UK` };
     case `Aberdeenshire, Scotland`:
       return { top: 12, left: 51.8, map: `UK` };
+    case `Montrose, Scotland`:
+      return { top: 17.1, left: 50.9, map: `UK` };
     default:
       throw new Error(`Unknown residence: ${place}`);
   }
