@@ -52,6 +52,9 @@ jobs:
     name: test
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
       - name: lint
@@ -75,6 +78,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: update-npm
+        run: npm i -g npm@8.5.3 --registry=https://registry.npmjs.org
       - uses: actions/checkout@v2
         with:
           path: evans
@@ -129,6 +134,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: update-npm
+        run: npm i -g npm@8.5.3 --registry=https://registry.npmjs.org
       - uses: actions/checkout@v2
         with:
           path: evans

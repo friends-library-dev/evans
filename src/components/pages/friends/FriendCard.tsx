@@ -59,6 +59,7 @@ const FriendCard: React.FC<Props> = ({
           className={cx(`box-content hidden md:mt-6`, {
             'border-2 border-white md:block': featured,
           })}
+          // purgeCSS: hover:bg-flgold-800
           bg={buttonBgColor}
         >
           {t`Learn More`}
