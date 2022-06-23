@@ -9,10 +9,19 @@ export function sortFriends(friends: Friend[]): Friend[] {
     friend.relatedDocuments.sort((a, b) => (a.document.id < b.document.id ? -1 : 1));
     friend.quotes.sort(byOrder);
     friend.documents.sort(sortDocuments);
-    friend.residences.sort((a, b) => (a.city < b.city ? -1 : 1));
+
     for (const residence of friend.residences) {
       residence.durations.sort((a, b) => a.start - b.start);
     }
+
+    friend.residences.sort((a, b) => {
+      if (a.durations.length === 1 && b.durations.length === 1) {
+        return a.durations[0].start < b.durations[0].start ? -1 : 1;
+      } else {
+        return a.city < b.city ? -1 : 1;
+      }
+    });
+
     for (const document of friend.documents) {
       document.editions.sort(editionsByType);
       document.tags.sort((a, b) => (a.type < b.type ? -1 : 1));
