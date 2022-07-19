@@ -133,8 +133,16 @@ function getOutOfBandEvents(
     {
       lang: [`es`],
       type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulos 16 y 17)`,
+      description: `Los capítulos dieciséis y diecisiete de la <em>Historia de los Cuáqueros</em> ya están disponibles, y se pueden descargar gratuitamente.`,
+      ...dateFields(`2022-07-19T15:01:25.265Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
+      lang: [`es`],
+      type: `chapter`,
       title: `Historia de los Cuáqueros &mdash; (Capítulos 14 y 15)`,
-      description: `Los capítulos decimocuarto y decimoquinto de la <em>Historia de los Cuáqueros</em> ya están disponible, y se pueden descargar gratuitamente.`,
+      description: `Los capítulos decimocuarto y decimoquinto de la <em>Historia de los Cuáqueros</em> ya están disponibles, y se pueden descargar gratuitamente.`,
       ...dateFields(`2022-05-09T15:01:59.905Z`, formatter, `es`),
       url: `/william-sewel/historia-de-los-cuaqueros`,
     },
