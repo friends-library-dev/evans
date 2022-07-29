@@ -93,6 +93,10 @@ export async function getNewsFeedItems(
       if (title.includes(`Unabridged Works of Isaac Penington`) && !title.includes(`,`)) {
         return false;
       }
+      // custom newsfeed with subtitle for "Fruits of Retirement"
+      if (title.includes(`Fruits of Retirement`) && !title.includes(`Poetry`)) {
+        return false;
+      }
       return true;
     })
     .filter(({ title }) => {
@@ -130,6 +134,14 @@ function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
   return [
+    {
+      lang: [`en`],
+      type: `book`,
+      title: `Fruits of Retirement &mdash; Poetry of Mary Mollineux`,
+      description: `Download free ebook or pdf, or purchase a paperback at cost.`,
+      ...dateFields(`2022-07-29T20:06:41.268Z`, formatter, `en`),
+      url: `/mary-mollineux/fruits-of-retirement`,
+    },
     {
       lang: [`es`],
       type: `chapter`,
