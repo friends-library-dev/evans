@@ -147,6 +147,8 @@ function getPosition(residence: Pick<FriendResidence, 'city' | 'region'>): Posit
       return { top: 71.8, left: 52.7, map: `UK` };
     case `Colchester, England`:
       return { top: 70.3, left: 63.3, map: `UK` };
+    case `Woodbridge, England`:
+      return { top: 68.3, left: 65.3, map: `UK` };
     case `Chelmsford, England`:
       return { top: 71.3, left: 61.8, map: `UK` };
     case `Radnorshire, Wales`:
