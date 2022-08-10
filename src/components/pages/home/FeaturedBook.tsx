@@ -41,9 +41,10 @@ const Book: React.FC<FeaturedBookProps & { isCurrent: boolean }> = (props) => {
             Modernized Edition
           </p>
         )}
-        <p className="font-serif text-lg md:text-xl opacity-75 leading-relaxed max-w-2xl">
-          {featuredDesc}
-        </p>
+        <p
+          className="font-serif text-lg md:text-xl opacity-75 leading-relaxed max-w-2xl"
+          dangerouslySetInnerHTML={{ __html: featuredDesc }}
+        />
         {!props.author.startsWith(`Compila`) && (
           <p className="mb-10 md:mb-0 my-6">
             <em className="font-serif font-black text-lg antialiased pr-2">{t`by`}:</em>

@@ -97,6 +97,10 @@ export async function getNewsFeedItems(
       if (title.includes(`Fruits of Retirement`) && !title.includes(`Poetry`)) {
         return false;
       }
+      // custom newsfeed for updated william sewel's updated history
+      if (title.includes(`Progress of the Christian People`)) {
+        return false;
+      }
       return true;
     })
     .filter(({ title }) => {
@@ -134,6 +138,14 @@ function getOutOfBandEvents(
   formatter: Intl.DateTimeFormat,
 ): (FeedItem & { lang: Lang[] })[] {
   return [
+    {
+      lang: [`en`],
+      type: `book`,
+      title: `New modernized and annotated edition of Sewel&rsquo;s classic History of the Quakers`,
+      description: `Download free ebook or pdf, or purchase a paperback at cost.`,
+      ...dateFields(`2022-08-11T14:52:49.430Z`, formatter, `en`),
+      url: `/william-sewel/history-of-quakers`,
+    },
     {
       lang: [`en`],
       type: `book`,

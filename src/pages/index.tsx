@@ -83,6 +83,7 @@ interface Props {
     en_ip_1: any | null;
     en_ip_2: any | null;
     en_penn_ncnc: any | null;
+    en_sewel: any | null;
     es_titip: any | null;
     es_ip_1: any | null;
     es_ip_2: any | null;
@@ -145,6 +146,13 @@ export const query = graphql`
     en_penn_ncnc: document(
       slug: { eq: "no-cross-no-crown" }
       friendSlug: { eq: "william-penn" }
+    ) {
+      ...RecommendedBook
+      featuredDesc: featuredDescription
+    }
+    en_sewell: document(
+      slug: { eq: "history-of-quakers" }
+      friendSlug: { eq: "william-sewel" }
     ) {
       ...RecommendedBook
       featuredDesc: featuredDescription
