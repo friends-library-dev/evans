@@ -139,6 +139,14 @@ function getOutOfBandEvents(
 ): (FeedItem & { lang: Lang[] })[] {
   return [
     {
+      lang: [`es`],
+      type: `chapter`,
+      title: `Historia de los Cuáqueros &mdash; (Capítulo 18)`,
+      description: `El decimoctavo capítulo de la <em>Historia de los Cuáqueros</em> ya está disponible y se puede descargar gratuitamente.`,
+      ...dateFields(`2022-09-06T20:25:34.201Z`, formatter, `es`),
+      url: `/william-sewel/historia-de-los-cuaqueros`,
+    },
+    {
       lang: [`en`],
       type: `book`,
       title: `New modernized and annotated edition of Sewel&rsquo;s classic History of the Quakers`,
