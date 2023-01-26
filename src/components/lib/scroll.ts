@@ -11,4 +11,4 @@ export function makeScroller(selector: string, padding = 0): () => void {
   };
 }
 
-const FIXED_TOPNAV_HEIGHT = 70;
+export const FIXED_TOPNAV_HEIGHT = 70;

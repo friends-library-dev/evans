@@ -57,6 +57,7 @@ const Footer: React.FC<{ bgImg: FluidBgImageObject }> = ({ bgImg }) => {
               title={t`About`}
               links={[
                 [t`/quakers`, t`About the Quakers`],
+                [`/what-early-quakers-believed`, `Early Quaker Beliefs`, `en`],
                 [`/modernization`, `About modernization`, `en`],
                 [`/editions`, `About book editions`, `en`],
                 [`/spanish-translations`, `About Spanish translations`, `en`],

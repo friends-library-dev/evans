@@ -36,12 +36,12 @@ html:lang(en) .en\:hidden {
 }
 
 .fl-underline {
-  padding-bottom: 0.5em;
+  padding-bottom: 0.33em;
   background-image: linear-gradient(
     to top,
     currentColor 0%,
-    currentColor 0.2em,
-    transparent 0.2em
+    currentColor 0.18em,
+    transparent 0.18em
   );
 }
 
